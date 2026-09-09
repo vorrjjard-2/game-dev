@@ -1,25 +1,37 @@
 extends CharacterBody2D
 
-const tile_size: Vector2 = Vector2(50, 50)
-var sprite_node_pos_tween: Tween
+# Set this to your desired walking speed
+const SPEED = 150.0
+
+@onready var body = $Body
+@onready var animated_sprite = $Body/AnimatedSprite2D
+
+func _ready() -> void:
+	animated_sprite.play("idle")
 
 func _physics_process(delta: float) -> void:
-	if !sprite_node_pos_tween or !sprite_node_pos_tween.is_running():
-		if Input.is_action_just_pressed("ui_up") and !$up.is_colliding():
-			_move(Vector2(0, -1))
-		elif Input.is_action_just_pressed("ui_down") and !$down.is_colliding():
-			_move(Vector2(0, 1))
-		elif Input.is_action_just_pressed("ui_left") and !$left.is_colliding():
-			_move(Vector2(-1, 0)) 
-		elif Input.is_action_just_pressed("ui_right") and !$right.is_colliding():
-			_move(Vector2(1, 0))
-
-func _move(dir : Vector2):
-	global_position += dir * tile_size
-	$Sprite2D.global_position -= dir * tile_size
+	# 1. Get input direction (-1, 0, or 1) for X and Y axes
+	var direction_x = Input.get_axis("ui_left", "ui_right")
+	var direction_y = Input.get_axis("ui_up", "ui_down")
 	
-	if sprite_node_pos_tween:
-		sprite_node_pos_tween.kill()
-	sprite_node_pos_tween = create_tween()
-	sprite_node_pos_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	sprite_node_pos_tween.tween_property($Sprite2D, "global_position", global_position, 0.185).set_trans(Tween.TRANS_SINE)
+	# 2. Apply movement velocity based on input direction
+	if direction_x:
+		velocity.x = direction_x * SPEED
+		animated_sprite.play("walk")
+		animated_sprite.flip_h = direction_x < 0
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	if direction_y:
+		velocity.y = direction_y * SPEED
+		animated_sprite.play("walk")
+	else:
+		velocity.y = move_toward(velocity.y, 0, SPEED)
+
+	# Play idle animation if the player is standing still
+	if direction_x == 0 and direction_y == 0:
+		animated_sprite.play("idle")
+
+	# 3. Use Godot's native physics system! 
+	# This automatically stops your character perfectly flush against your TileMap collisions.
+	move_and_slide()
