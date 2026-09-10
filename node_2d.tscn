@@ -8410,6 +8410,7 @@ frame_progress = 0.29706046
 [node name="Pit" type="Area2D" parent="Layer2" unique_id=1060718979 node_paths=PackedStringArray("player")]
 script = ExtResource("31_mryly")
 player = NodePath("../../Player")
+forced_move = Vector2(1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2/Pit" unique_id=279881189]
 position = Vector2(-513, -665)
