@@ -1,6 +1,5 @@
 extends Area2D
 
-
 @export var door: StaticBody2D 
 @export var door_sprite: AnimatedSprite2D
 @export var door_collision: CollisionShape2D
