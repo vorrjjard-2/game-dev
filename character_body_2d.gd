@@ -1,37 +1,51 @@
 extends CharacterBody2D
 
-# Set this to your desired walking speed
-const SPEED = 150.0
+const tile_size = 16
+
 
 @onready var body = $Body
 @onready var animated_sprite = $Body/AnimatedSprite2D
+var forced_direction_x: int
+var forced_direction_y: int
 
 func _ready() -> void:
 	animated_sprite.play("idle")
+	
+func get_move_direction(input_x: float, input_y: float) -> Vector2:
+	var dir_x = sign(input_x)
+	var dir_y = sign(input_y)
+	
+	if forced_direction_x != 0:
+		return Vector2(sign(forced_direction_x), 0)
+	elif dir_x != 0:
+		return Vector2(dir_x, 0)
+		
+	if forced_direction_y != 0:
+		return Vector2(0, sign(forced_direction_y))
+	elif dir_y != 0:
+		return Vector2(0, dir_y)
+		
+	return Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	# 1. Get input direction (-1, 0, or 1) for X and Y axes
-	var direction_x = Input.get_axis("ui_left", "ui_right")
-	var direction_y = Input.get_axis("ui_up", "ui_down")
+	var input_x = Input.get_axis("ui_left", "ui_right")
+	var input_y = Input.get_axis("ui_up", "ui_down")
 	
-	# 2. Apply movement velocity based on input direction
-	if direction_x:
-		velocity.x = direction_x * SPEED
-		animated_sprite.play("walk")
-		animated_sprite.flip_h = direction_x < 0
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	var move_dir = get_move_direction(input_x, input_y)
+	
+	if move_dir != Vector2.ZERO:
+		var move = move_dir * tile_size * delta
+		var is_colliding = test_move(global_transform, move)
 		
-	if direction_y:
-		velocity.y = direction_y * SPEED
-		animated_sprite.play("walk")
+		if not is_colliding:
+			global_position += move
+			if animated_sprite:
+				animated_sprite.play("walk")
+				if move_dir.x != 0:
+					animated_sprite.flip_h = move_dir.x < 0
+		else:
+			if animated_sprite:
+				animated_sprite.play("idle")
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-
-	# Play idle animation if the player is standing still
-	if direction_x == 0 and direction_y == 0:
-		animated_sprite.play("idle")
-
-	# 3. Use Godot's native physics system! 
-	# This automatically stops your character perfectly flush against your TileMap collisions.
-	move_and_slide()
+		if animated_sprite:
+			animated_sprite.play("idle")
