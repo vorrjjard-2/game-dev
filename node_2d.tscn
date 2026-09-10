@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://svg6j3emprbg" path="res://layer_2.gd" id="28_24dk6"]
 [ext_resource type="Texture2D" uid="uid://bohbbnm07yjd1" path="res://assets/free-2d-top-down-pixel-dungeon-asset-pack/PNG/water_detilazation_v2.png" id="29_q5dlx"]
 [ext_resource type="Script" uid="uid://dn1gnnlrofreq" path="res://pit.gd" id="31_mryly"]
+[ext_resource type="Script" uid="uid://dl2c4qt2e1iok" path="res://ice.gd" id="32_kq1c5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6r6c"]
 atlas = ExtResource("2_epypp")
@@ -8398,6 +8399,7 @@ position = Vector2(-513, -665)
 shape = SubResource("RectangleShape2D_5icao")
 
 [node name="Ice" type="Area2D" parent="Layer2" unique_id=290772430]
+script = ExtResource("32_kq1c5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2/Ice" unique_id=590192187]
 

@@ -8,10 +8,11 @@ const GRID_SPEED: float = 150.0
 var forced_move_x: int
 var forced_move_y: int
 
-# Track movement state and destination tile coordinates
 var is_moving: bool = false
 var target_position: Vector2 = Vector2.ZERO
 var last_input_dir: Vector2 = Vector2.ZERO
+var last_move_dir: Vector2 = Vector2.ZERO
+var ice_count: int = 0
 
 func _ready() -> void:
 	animated_sprite.play("idle")
@@ -77,6 +78,7 @@ func _physics_process(delta: float) -> void:
 		var move = move_dir * tile_size
 		var is_colliding = test_move(global_transform, move)
 		if not is_colliding:
+			last_move_dir = move_dir
 			target_position = global_position + move
 			is_moving = true
 			if animated_sprite:
@@ -85,6 +87,9 @@ func _physics_process(delta: float) -> void:
 				if move_dir.x != 0:
 					animated_sprite.flip_h = move_dir.x < 0
 		else:
+			if ice_count > 0:
+				forced_move_x = 0
+				forced_move_y = 0
 			if animated_sprite and animated_sprite.animation != "idle":
 				animated_sprite.play("idle")
 	else:
