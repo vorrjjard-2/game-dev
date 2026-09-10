@@ -18,6 +18,9 @@ var pit_count: int = 0
 func _ready() -> void:
 	animated_sprite.play("idle")
 	target_position = global_position
+	if Global.should_reposition:
+		global_position = Global.return_position
+		Global.should_reposition = false # Reset the flag
 	
 func get_move_direction(input_x: float, input_y: float) -> Vector2:
 	var dir_x = sign(input_x)
