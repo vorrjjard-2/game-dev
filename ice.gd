@@ -5,14 +5,11 @@ func _ready() -> void:
 	body_exited.connect(_on_ice_body_exited)
 
 func _on_ice_body_entered(body: Node2D) -> void:
-	if not "last_move_dir" in body:
-		return
-	body.ice_count += 1
-	body.forced_move_x = int(body.last_move_dir.x)
-	body.forced_move_y = int(body.last_move_dir.y)
+	if "ice_count" in body:
+		body.ice_count += 1
 
 func _on_ice_body_exited(body: Node2D) -> void:
-	if not "last_move_dir" in body:
+	if not "ice_count" in body:
 		return
 	body.ice_count -= 1
 	if body.ice_count <= 0:

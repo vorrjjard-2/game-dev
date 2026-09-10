@@ -22,6 +22,9 @@ func get_move_direction(input_x: float, input_y: float) -> Vector2:
 	var dir_x = sign(input_x)
 	var dir_y = sign(input_y)
 	
+	if ice_count > 0 and forced_move_y != 0:
+		return Vector2(0, sign(forced_move_y))
+	
 	if forced_move_x != 0:
 		dir_x = forced_move_x
 		return Vector2(dir_x, 0)
@@ -43,6 +46,9 @@ func _physics_process(delta: float) -> void:
 		if global_position != target_position:
 			return
 		is_moving = false
+		if ice_count > 0:
+			forced_move_x = int(last_move_dir.x)
+			forced_move_y = int(last_move_dir.y)
 
 	var input_x = 0.0
 	var input_y = 0.0
@@ -69,6 +75,7 @@ func _physics_process(delta: float) -> void:
 			input_y = -1.0
 			last_input_dir = Vector2(0, -1)
 		else:
+			# Fully released all movement keys
 			last_input_dir = Vector2.ZERO
 			
 	var move_dir = get_move_direction(input_x, input_y)
