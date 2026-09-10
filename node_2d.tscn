@@ -8315,25 +8315,6 @@ z_index = 1
 position = Vector2(0, -18.5)
 shape = SubResource("RectangleShape2D_k73cj")
 
-[node name="up" type="RayCast2D" parent="Player" unique_id=1462130817]
-position = Vector2(0, -50)
-target_position = Vector2(0, -50)
-hit_from_inside = true
-
-[node name="down" type="RayCast2D" parent="Player" unique_id=830688480]
-position = Vector2(0, 50)
-hit_from_inside = true
-
-[node name="left" type="RayCast2D" parent="Player" unique_id=1578716636]
-position = Vector2(-50, 0)
-target_position = Vector2(-50, 0)
-hit_from_inside = true
-
-[node name="right" type="RayCast2D" parent="Player" unique_id=1272642617]
-position = Vector2(50, 0)
-target_position = Vector2(50, 0)
-hit_from_inside = true
-
 [node name="Layer3" type="TileMapLayer" parent="." unique_id=719791890]
 z_index = 1
 position = Vector2(-1, 2)
@@ -8415,6 +8396,10 @@ forced_move = Vector2(1, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2/Pit" unique_id=279881189]
 position = Vector2(-513, -665)
 shape = SubResource("RectangleShape2D_5icao")
+
+[node name="Ice" type="Area2D" parent="Layer2" unique_id=290772430]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2/Ice" unique_id=590192187]
 
 [node name="Layer1" type="TileMapLayer" parent="." unique_id=1890914785]
 z_index = -1
