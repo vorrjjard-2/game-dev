@@ -13,6 +13,7 @@ var target_position: Vector2 = Vector2.ZERO
 var last_input_dir: Vector2 = Vector2.ZERO
 var last_move_dir: Vector2 = Vector2.ZERO
 var ice_count: int = 0
+var pit_count: int = 0
 
 func _ready() -> void:
 	animated_sprite.play("idle")
@@ -75,7 +76,6 @@ func _physics_process(delta: float) -> void:
 			input_y = -1.0
 			last_input_dir = Vector2(0, -1)
 		else:
-			# Fully released all movement keys
 			last_input_dir = Vector2.ZERO
 			
 	var move_dir = get_move_direction(input_x, input_y)

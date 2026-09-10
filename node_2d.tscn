@@ -8373,6 +8373,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pr7xa"]
+size = Vector2(20, 21)
 
 [node name="Node2D" type="Node2D" unique_id=1475395560]
 
@@ -8393,6 +8394,7 @@ sprite_frames = SubResource("SpriteFrames_1kcfw")
 animation = &"new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=64148036]
+top_level = true
 z_index = 1
 shape = SubResource("RectangleShape2D_k73cj")
 
@@ -8469,12 +8471,12 @@ scale = Vector2(0.26308143, 1.15625)
 sprite_frames = SubResource("SpriteFrames_xc47o")
 frame_progress = 0.29706046
 
-[node name="Pit" type="Area2D" parent="Layer2" unique_id=1060718979 node_paths=PackedStringArray("player")]
+[node name="Pit1" type="Area2D" parent="Layer2" unique_id=1060718979 node_paths=PackedStringArray("player")]
 script = ExtResource("31_mryly")
 player = NodePath("../../Player")
 forced_move = Vector2(1, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2/Pit" unique_id=279881189]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2/Pit1" unique_id=279881189]
 position = Vector2(-528, -672)
 shape = SubResource("RectangleShape2D_5icao")
 
@@ -8483,7 +8485,7 @@ script = ExtResource("31_mryly")
 player = NodePath("../../Player")
 forced_move = Vector2(-1, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2/Pit2" unique_id=1823559743]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2/Pit2" unique_id=1823559743 groups=["pit"]]
 position = Vector2(-464, -672)
 shape = SubResource("RectangleShape2D_xiu7j")
 
@@ -8493,8 +8495,8 @@ script = ExtResource("31_mryly")
 player = NodePath("../../Player")
 forced_move = Vector2(0, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2/Pit3" unique_id=890763533]
-position = Vector2(-496, -688)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Layer2/Pit3" unique_id=890763533 groups=["pit"]]
+position = Vector2(-490, -685)
 shape = SubResource("RectangleShape2D_ha6mc")
 
 [node name="Ice" type="Area2D" parent="Layer2" unique_id=290772430]
@@ -8528,8 +8530,9 @@ animation = &"triggered2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lever" unique_id=1904018280]
 z_index = 1
+position = Vector2(1, -16.5)
 shape = SubResource("RectangleShape2D_pr7xa")
 
 [connection signal="animation_finished" from="Layer3/Door/AnimatedSprite2D" to="Lever" method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="Layer2/Pit" to="Player" method="_on_pit_body_entered"]
-[connection signal="body_exited" from="Layer2/Pit" to="Layer2/Pit" method="_on_body_exited"]
+[connection signal="body_entered" from="Layer2/Pit1" to="Player" method="_on_pit_body_entered"]
+[connection signal="body_exited" from="Layer2/Pit1" to="Layer2/Pit1" method="_on_body_exited"]
