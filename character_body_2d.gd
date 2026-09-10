@@ -101,3 +101,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		if animated_sprite and animated_sprite.animation != "idle":
 			animated_sprite.play("idle")
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Portal"):
+		is_moving = false
+		position.x = -1000
+		position.y = 1000
+		
+	if area.is_in_group("Portal2"):
+		is_moving = false
+		position.x = -500
+		position.y = -500
