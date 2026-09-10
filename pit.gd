@@ -10,15 +10,18 @@ func _ready() -> void:
 func _on_pit_body_entered(body: Node2D) -> void:
 	if forced_move.x == 1 and "forced_move_x" in body:
 		body.forced_move_x = 1
+		body.forced_move_y = 0
 	elif forced_move.x == -1 and "forced_move_x" in body:
 		body.forced_move_x = -1
-		
+		body.forced_move_y = 0
 	if forced_move.y == 1 and "forced_move_y" in body:
 		body.forced_move_y = 1
+		body.forced_move_x = 0
 	elif forced_move.y == -1 and "forced_move_y" in body:
 		body.forced_move_y = -1
-		
+		body.forced_move_x = 0
 func _on_pit_body_exited(body: Node2D) -> void:
+
 	if "forced_move_x" in body:
 		body.forced_move_x = 0
 	if "forced_move_y" in body:

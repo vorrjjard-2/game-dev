@@ -13,14 +13,21 @@ var target_position: Vector2 = Vector2.ZERO
 var last_input_dir: Vector2 = Vector2.ZERO
 var last_move_dir: Vector2 = Vector2.ZERO
 var ice_count: int = 0
+var pit_count: int = 0
 
 func _ready() -> void:
 	animated_sprite.play("idle")
 	target_position = global_position
+	if Global.should_reposition:
+		global_position = Global.return_position
+		Global.should_reposition = false # Reset the flag
 	
 func get_move_direction(input_x: float, input_y: float) -> Vector2:
 	var dir_x = sign(input_x)
 	var dir_y = sign(input_y)
+	
+	if ice_count > 0 and forced_move_y != 0:
+		return Vector2(0, sign(forced_move_y))
 	
 	if forced_move_x != 0:
 		dir_x = forced_move_x
@@ -43,6 +50,9 @@ func _physics_process(delta: float) -> void:
 		if global_position != target_position:
 			return
 		is_moving = false
+		if ice_count > 0:
+			forced_move_x = int(last_move_dir.x)
+			forced_move_y = int(last_move_dir.y)
 
 	var input_x = 0.0
 	var input_y = 0.0
@@ -94,3 +104,15 @@ func _physics_process(delta: float) -> void:
 	else:
 		if animated_sprite and animated_sprite.animation != "idle":
 			animated_sprite.play("idle")
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Portal"):
+		is_moving = false
+		position.x = -1000
+		position.y = 1000
+		
+	if area.is_in_group("Portal2"):
+		is_moving = false
+		position.x = -500
+		position.y = -500

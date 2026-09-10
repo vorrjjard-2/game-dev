@@ -10,7 +10,14 @@ extends Area2D
 var trigger: bool = false
 
 func _ready() -> void:
-	lever_sprite.play("default")
+	if not Global.world_1_door_open:
+		lever_sprite.play("default")
+	else:
+		lever_sprite.play("default2")
+		if door_sprite != null:
+			door_sprite.play("open")
+		if door_collision != null:
+			door_collision.set_deferred("disabled", true)
 	body_entered.connect(_on_lever_body_entered)
 	body_exited.connect(_on_body_exited)
 func _on_lever_body_entered(body: Node2D) -> void:
