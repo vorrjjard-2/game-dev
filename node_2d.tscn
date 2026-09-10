@@ -153,7 +153,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k73cj"]
-size = Vector2(16, 16)
+size = Vector2(12, 11.5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7vxoj"]
 texture = ExtResource("11_2nhjh")
