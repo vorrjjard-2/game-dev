@@ -11,6 +11,7 @@ var forced_move_y: int
 # Track movement state and destination tile coordinates
 var is_moving: bool = false
 var target_position: Vector2 = Vector2.ZERO
+var last_input_dir: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	animated_sprite.play("idle")
@@ -42,8 +43,34 @@ func _physics_process(delta: float) -> void:
 			return
 		is_moving = false
 
-	var input_x = Input.get_axis("ui_left", "ui_right")
-	var input_y = Input.get_axis("ui_up", "ui_down")
+	var input_x = 0.0
+	var input_y = 0.0
+
+	if last_input_dir.x == 1.0 and Input.is_action_pressed("ui_right"):
+		input_x = 1.0
+	elif last_input_dir.x == -1.0 and Input.is_action_pressed("ui_left"):
+		input_x = -1.0
+	elif last_input_dir.y == 1.0 and Input.is_action_pressed("ui_down"):
+		input_y = 1.0
+	elif last_input_dir.y == -1.0 and Input.is_action_pressed("ui_up"):
+		input_y = -1.0
+	else:
+		if Input.is_action_pressed("ui_right"):
+			input_x = 1.0
+			last_input_dir = Vector2(1, 0)
+		elif Input.is_action_pressed("ui_left"):
+			input_x = -1.0
+			last_input_dir = Vector2(-1, 0)
+		elif Input.is_action_pressed("ui_down"):
+			input_y = 1.0
+			last_input_dir = Vector2(0, 1)
+		elif Input.is_action_pressed("ui_up"):
+			input_y = -1.0
+			last_input_dir = Vector2(0, -1)
+		else:
+			# Fully released all movement keys
+			last_input_dir = Vector2.ZERO
+			
 	var move_dir = get_move_direction(input_x, input_y)
 	
 	if move_dir != Vector2.ZERO:

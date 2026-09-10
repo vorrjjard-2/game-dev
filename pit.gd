@@ -8,7 +8,6 @@ func _ready() -> void:
 	body_exited.connect(_on_pit_body_exited)
 	
 func _on_pit_body_entered(body: Node2D) -> void:
-	# Read directly from forced_move so inspector changes are captured accurately
 	if forced_move.x == 1 and "forced_move_x" in body:
 		body.forced_move_x = 1
 	elif forced_move.x == -1 and "forced_move_x" in body:
