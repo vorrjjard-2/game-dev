@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const tile_size = 16
+const tile_size = 32
 const GRID_SPEED: float = 150.0 
 
 @onready var body = $Body
