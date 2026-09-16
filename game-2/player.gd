@@ -18,7 +18,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("ui_accept") and velocity.y < 0:
 		velocity.y *= JUMP_STOP_MULTIPLIER
 <<<<<<< HEAD
+<<<<<<< HEAD
 		
+=======
+	
+>>>>>>> parent of e565262 (Merge branch 'main' of https://github.com/vorrjjard-2/game-dev)
 =======
 	
 >>>>>>> parent of e565262 (Merge branch 'main' of https://github.com/vorrjjard-2/game-dev)
@@ -28,9 +32,28 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
+=======
+		animated_sprite.play("idle")
+		
+	if not is_on_floor():
+		if velocity.y < 0:
+			animated_sprite.play("jump")
+		else:
+			animated_sprite.play("fall")
+	else:
+		if direction != 0:
+			animated_sprite.play("move")
+		else:
+			animated_sprite.play("idle")
+			
+	move_and_slide()
+	
+	if is_on_wall() and is_on_floor():
+>>>>>>> parent of e565262 (Merge branch 'main' of https://github.com/vorrjjard-2/game-dev)
 		animated_sprite.play("idle")
 		
 	if not is_on_floor():
