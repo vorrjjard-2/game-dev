@@ -1820,11 +1820,10 @@ script = ExtResource("1_main")
 [node name="TileMapLayer" type="TileMapLayer" parent="Moving Platform" unique_id=1746172695]
 texture_filter = 1
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAAEAPz/AQAAAAAAAAAFAPz/AQABAAAAAAAGAPz/AQABAAAAAAAHAPz/AQABAAAAAAAIAPz/AQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAEAPz/AQAAAAAAAAAFAPz/AQABAAAAAAAGAPz/AQABAAAAAAAHAPz/AQABAAAAAAAIAPz/AQACAAAAAAAIAPf/AQAAAAAAAAAJAPf/AQABAAAAAAAKAPf/AQACAAAAAAAFAPH/AQAAAAAAAAAGAPH/AQABAAAAAAAHAPH/AQACAAAAAAALAPT/AQAAAAAAAAAMAPT/AQABAAAAAAANAPT/AQACAAAAAAA=")
 tile_set = SubResource("TileSet_1kcfw")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Moving Platform" unique_id=824035509]
-root_node = NodePath("../TileMapLayer")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Moving Platform/TileMapLayer" unique_id=824035509]
 libraries/ = SubResource("AnimationLibrary_ryguw")
 autoplay = &"move_platform"
 
