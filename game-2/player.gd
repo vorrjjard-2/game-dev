@@ -18,6 +18,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("ui_up") and velocity.y < 0:
 		velocity.y *= JUMP_STOP_MULTIPLIER
 		
+	if Input.is_action_just_pressed("ui_down") and not is_on_floor():
+		velocity.y += -JUMP_VELOCITY
+		
+	if Input.is_action_just_released("ui_down") and velocity.y > 0:
+		velocity.y *= JUMP_STOP_MULTIPLIER
+		
+		
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
