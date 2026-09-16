@@ -14,12 +14,19 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y += JUMP_VELOCITY
 		
-	if Input.is_action_just_released("ui_accept") and velocity.y < 0:
+	if Input.is_action_just_released("ui_up") and velocity.y < 0:
 		velocity.y *= JUMP_STOP_MULTIPLIER
-	
+		
+	if Input.is_action_just_pressed("ui_down") and not is_on_floor():
+		velocity.y += -JUMP_VELOCITY
+		
+	if Input.is_action_just_released("ui_down") and velocity.y > 0:
+		velocity.y *= JUMP_STOP_MULTIPLIER
+		
+		
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
@@ -28,19 +35,10 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.flip_h = velocity.x < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		animated_sprite.play("idle")
 		
-	if not is_on_floor():
-		if velocity.y < 0:
-			animated_sprite.play("jump")
-		else:
-			animated_sprite.play("fall")
-	else:
-		if direction != 0:
-			animated_sprite.play("move")
-		else:
-			animated_sprite.play("idle")
-			
+	if Input.is_action_pressed("sprint"):
+		velocity.x = direction * SPEED * 1.5
+
 	move_and_slide()
 	
 	if is_on_wall() and is_on_floor():
