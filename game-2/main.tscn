@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://cma47e2804lfc"]
 
 [ext_resource type="Script" uid="uid://56n408bfyjo6" path="res://main.gd" id="1_main"]
-[ext_resource type="PackedScene" path="res://platform.tscn" id="2_plat"]
 [ext_resource type="PackedScene" path="res://player.tscn" id="3_player"]
 [ext_resource type="Texture2D" uid="uid://d14cm3ms4obby" path="res://assets/CloudsLayerLayer4.png" id="4_yaehf"]
 [ext_resource type="Texture2D" uid="uid://dmi0ui0g08kju" path="res://assets/GroundLayer1.png" id="5_074og"]
@@ -17,9 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://duptcfpxgaian" path="res://assets/SkyLayer6.png" id="14_a6jrf"]
 [ext_resource type="Texture2D" uid="uid://b3cthcm2f1d5h" path="res://assets/SunLayer5.png" id="15_xuqvo"]
 [ext_resource type="Texture2D" uid="uid://d0rxrmde4gc37" path="res://assets/Castle/OutlinedWithMissingBricks/Caste-Blue.png" id="16_qsp4k"]
-
-[sub_resource type="RectangleShape2D" id="Shape_wall"]
-size = Vector2(80, 4200)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq58d"]
 texture = ExtResource("4_yaehf")
@@ -1468,101 +1464,7 @@ size = Vector2(300, 90)
 [node name="Main" type="Node2D" unique_id=1647708884]
 script = ExtResource("1_main")
 
-[node name="WallLeft" type="StaticBody2D" parent="." unique_id=113549191]
-position = Vector2(-40, -1900)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft" unique_id=1351608772]
-shape = SubResource("Shape_wall")
-
-[node name="WallRight" type="StaticBody2D" parent="." unique_id=2057480923]
-position = Vector2(1192, -1900)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight" unique_id=1048913408]
-shape = SubResource("Shape_wall")
-
-[node name="Platforms" type="Node2D" parent="." unique_id=1325050843]
-
-[node name="Platform1" parent="Platforms" unique_id=546833738 instance=ExtResource("2_plat")]
-position = Vector2(330, -200)
-scale = Vector2(1.2, 0.3)
-
-[node name="Platform2" parent="Platforms" unique_id=607971419 instance=ExtResource("2_plat")]
-position = Vector2(620, -370)
-scale = Vector2(1.2, 0.3)
-
-[node name="Platform3" parent="Platforms" unique_id=1521402337 instance=ExtResource("2_plat")]
-position = Vector2(900, -540)
-scale = Vector2(1.2, 0.3)
-
-[node name="Platform4" parent="Platforms" unique_id=1929965474 instance=ExtResource("2_plat")]
-position = Vector2(640, -710)
-scale = Vector2(1, 0.3)
-
-[node name="Platform5" parent="Platforms" unique_id=1984772062 instance=ExtResource("2_plat")]
-position = Vector2(330, -880)
-scale = Vector2(1, 0.3)
-
-[node name="Platform6" parent="Platforms" unique_id=66092821 instance=ExtResource("2_plat")]
-position = Vector2(120, -1050)
-scale = Vector2(1, 0.3)
-
-[node name="Platform7" parent="Platforms" unique_id=1539232123 instance=ExtResource("2_plat")]
-position = Vector2(400, -1220)
-scale = Vector2(1.2, 0.3)
-
-[node name="Platform8" parent="Platforms" unique_id=915475619 instance=ExtResource("2_plat")]
-position = Vector2(700, -1390)
-scale = Vector2(1, 0.3)
-
-[node name="Platform9" parent="Platforms" unique_id=1451818867 instance=ExtResource("2_plat")]
-position = Vector2(980, -1560)
-scale = Vector2(1.2, 0.3)
-
-[node name="Platform10" parent="Platforms" unique_id=1454802476 instance=ExtResource("2_plat")]
-position = Vector2(720, -1730)
-scale = Vector2(0.9, 0.3)
-
-[node name="Platform11" parent="Platforms" unique_id=708707538 instance=ExtResource("2_plat")]
-position = Vector2(430, -1900)
-scale = Vector2(0.9, 0.3)
-
-[node name="Platform12" parent="Platforms" unique_id=1567778 instance=ExtResource("2_plat")]
-position = Vector2(150, -2070)
-scale = Vector2(1, 0.3)
-
-[node name="Platform13" parent="Platforms" unique_id=436521622 instance=ExtResource("2_plat")]
-position = Vector2(420, -2240)
-scale = Vector2(0.9, 0.3)
-
-[node name="Platform14" parent="Platforms" unique_id=1975825796 instance=ExtResource("2_plat")]
-position = Vector2(700, -2410)
-scale = Vector2(0.9, 0.3)
-
-[node name="Platform15" parent="Platforms" unique_id=1500316892 instance=ExtResource("2_plat")]
-position = Vector2(980, -2580)
-scale = Vector2(1, 0.3)
-
-[node name="Platform16" parent="Platforms" unique_id=1687363911 instance=ExtResource("2_plat")]
-position = Vector2(680, -2750)
-scale = Vector2(0.8, 0.3)
-
-[node name="Platform17" parent="Platforms" unique_id=951943794 instance=ExtResource("2_plat")]
-position = Vector2(380, -2920)
-scale = Vector2(0.8, 0.3)
-
-[node name="Platform18" parent="Platforms" unique_id=821074330 instance=ExtResource("2_plat")]
-position = Vector2(120, -3090)
-scale = Vector2(0.9, 0.3)
-
-[node name="Platform19" parent="Platforms" unique_id=2000203990 instance=ExtResource("2_plat")]
-position = Vector2(400, -3260)
-scale = Vector2(0.8, 0.3)
-
-[node name="Platform20" parent="Platforms" unique_id=765046110 instance=ExtResource("2_plat")]
-position = Vector2(700, -3430)
-scale = Vector2(0.8, 0.3)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Platforms" unique_id=2120774998]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2120774998]
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAAAAAACwAAAAIAAAABAAAACwABAAIAAAACAAAACwABAAIAAAADAAAACwABAAIAAAAEAAAACwABAAIAAAAFAAAACwABAAIAAAAGAAAACwABAAIAAAAHAAAACwABAAIAAAAIAAAACwABAAIAAAAJAAAACwABAAIAAAAKAAAACwABAAIAAAALAAAACwABAAIAAAAMAAAACwABAAIAAAANAAAACwABAAIAAAAOAAAACwABAAIAAAAPAAAACwABAAIAAAAQAAAACwABAAIAAAARAAAACwACAAIAAAAAAP//CwAAAAEAAAAAAP7/CwAAAAEAAAAAAP3/CwAAAAEAAAAAAPz/CwAAAAEAAAAAAPv/CwAAAAEAAAAAAPr/CwAAAAEAAAAAAPn/CwAAAAEAAAAAAPj/CwAAAAEAAAAAAPf/CwAAAAEAAAAAAPb/CwAAAAEAAAAAAPX/CwAAAAEAAAAAAPT/CwAAAAEAAAAAAPP/CwAAAAEAAAAAAPL/CwAAAAEAAAAAAPH/CwAAAAEAAAAAAPD/CwAAAAEAAAAAAO//CwAAAAEAAAAAAO7/CwAAAAEAAAAAAO3/CwAAAAEAAAAAAOz/CwAAAAEAAAAAAOv/CwAAAAEAAAAAAOr/CwAAAAEAAAAAAOn/CwAAAAEAAAAAAOj/CwAAAAEAAAAAAOf/CwAAAAEAAAAAAOb/CwAAAAEAAAAAAOX/CwAAAAEAAAAAAOT/CwAAAAEAAAAAAOP/CwAAAAEAAAAAAOL/CwAAAAEAAAAAAOH/CwAAAAEAAAAAAOD/CwAAAAEAAAAAAN//CwAAAAEAAAAAAN7/CwAAAAEAAAAAAN3/CwAAAAEAAAAAANz/CwAAAAEAAAAAANv/CwAAAAEAAAAAANr/CwAAAAEAAAAAANn/CwAAAAEAAAAAANj/CwAAAAEAAAAAANf/CwAAAAEAAAAAANb/CwAAAAEAAAAAANX/CwAAAAEAAAAAANT/CwAAAAEAAAAAANP/CwAAAAEAAAAAANL/CwAAAAEAAAAAANH/CwAAAAEAAAAAAND/CwAAAAEAAAAAAM//CwAAAAEAAAAAAM7/CwAAAAEAAAAAAM3/CwAAAAEAAAAAAMz/CwAAAAEAAAAAAMv/CwAAAAEAAAAAAMr/CwAAAAEAAAAAAMn/CwAAAAEAAAAAAMj/CwAAAAEAAAAAAMf/CwAAAAEAAAAAAMb/CwAAAAEAAAAAAMX/CwAAAAEAAAAAAMT/CwAAAAEAAAAAAMP/CwAAAAEAAAAAAML/CwAAAAEAAAARAML/CwACAAEAAAARAMP/CwACAAEAAAARAMT/CwACAAEAAAARAMX/CwACAAEAAAARAMb/CwACAAEAAAARAMf/CwACAAEAAAARAMj/CwACAAEAAAARAMn/CwACAAEAAAARAMr/CwACAAEAAAARAMv/CwACAAEAAAARAMz/CwACAAEAAAARAM3/CwACAAEAAAARAM7/CwACAAEAAAARAM//CwACAAEAAAARAND/CwACAAEAAAARANH/CwACAAEAAAARANL/CwACAAEAAAARANP/CwACAAEAAAARANT/CwACAAEAAAARANX/CwACAAEAAAARANb/CwACAAEAAAARANf/CwACAAEAAAARANj/CwACAAEAAAARANn/CwACAAEAAAARANr/CwACAAEAAAARANv/CwACAAEAAAARANz/CwACAAEAAAARAN3/CwACAAEAAAARAN7/CwACAAEAAAARAN//CwACAAEAAAARAOD/CwACAAEAAAARAOH/CwACAAEAAAARAOL/CwACAAEAAAARAOP/CwACAAEAAAARAOT/CwACAAEAAAARAOX/CwACAAEAAAARAOb/CwACAAEAAAARAOf/CwACAAEAAAARAOj/CwACAAEAAAARAOn/CwACAAEAAAARAOr/CwACAAEAAAARAOv/CwACAAEAAAARAOz/CwACAAEAAAARAO3/CwACAAEAAAARAO7/CwACAAEAAAARAO//CwACAAEAAAARAPD/CwACAAEAAAARAPH/CwACAAEAAAARAPL/CwACAAEAAAARAPP/CwACAAEAAAARAPT/CwACAAEAAAARAPX/CwACAAEAAAARAPb/CwACAAEAAAARAPf/CwACAAEAAAARAPj/CwACAAEAAAARAPn/CwACAAEAAAARAPr/CwACAAEAAAARAPv/CwACAAEAAAARAPz/CwACAAEAAAARAP3/CwACAAEAAAARAP7/CwACAAEAAAARAP//CwACAAEAAAAIAMf/CwAFAAIAAAAJAMf/CwAFAAIAAAAKAMf/CwAHAAAAAAAJAMj/CwAFAAIAAAAIAMj/CwAFAAIAAAAHAMj/CwAGAAEAAAAHAMf/CwAGAAAAAAAKAMj/CwAHAAEAAAA=")
 tile_set = SubResource("TileSet_pr7xa")
