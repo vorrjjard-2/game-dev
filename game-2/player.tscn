@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene format=3 uid="uid://cq26vrm25g1qh"]
 
 [ext_resource type="Script" uid="uid://s2r4bmuah4bn" path="res://player.gd" id="2_script"]
@@ -10,17 +11,32 @@
 [ext_resource type="Texture2D" uid="uid://b4r7idlejxu2i" path="res://c7ec1a343c07b5ec9c1e05c703e3ea10.jpg" id="1_tex"]
 [ext_resource type="Script" path="res://player.gd" id="2_script"]
 >>>>>>> parent of c56c062 (Merge pull request #16 from vorrjjard-2/main)
+=======
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" uid="uid://b4r7idlejxu2i" path="res://c7ec1a343c07b5ec9c1e05c703e3ea10.jpg" id="1_tex"]
+[ext_resource type="Script" path="res://player.gd" id="2_script"]
+>>>>>>> parent of 938e5f8 (Merge branch 'main' into alexys-proj2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
 size = Vector2(64, 72)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [node name="Player" type="CharacterBody2D" unique_id=302162491]
+=======
+[node name="Player" type="CharacterBody2D"]
+>>>>>>> parent of 938e5f8 (Merge branch 'main' into alexys-proj2)
 script = ExtResource("2_script")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=354781273]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_player")
 
+<<<<<<< HEAD
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1266364785]
 =======
 [node name="Player" type="CharacterBody2D"]
@@ -77,6 +93,9 @@ shape = SubResource("RectangleShape2D_player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 >>>>>>> parent of c56c062 (Merge pull request #16 from vorrjjard-2/main)
+=======
+[node name="Camera2D" type="Camera2D" parent="."]
+>>>>>>> parent of 938e5f8 (Merge branch 'main' into alexys-proj2)
 limit_left = 0
 limit_top = -3900
 limit_right = 1152

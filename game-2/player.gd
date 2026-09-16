@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 =======
 		animated_sprite.play("idle")
 		
@@ -44,4 +45,6 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("idle")
 			
 >>>>>>> parent of e565262 (Merge branch 'main' of https://github.com/vorrjjard-2/game-dev)
+=======
+>>>>>>> parent of 938e5f8 (Merge branch 'main' into alexys-proj2)
 	move_and_slide()
