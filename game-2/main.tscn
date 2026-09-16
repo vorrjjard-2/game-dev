@@ -1820,7 +1820,7 @@ script = ExtResource("1_main")
 [node name="TileMapLayer" type="TileMapLayer" parent="Moving Platform" unique_id=1746172695]
 texture_filter = 1
 scale = Vector2(4, 4)
-tile_map_data = PackedByteArray("AAAEAPz/AQAAAAAAAAAFAPz/AQABAAAAAAAGAPz/AQABAAAAAAAHAPz/AQABAAAAAAAIAPz/AQACAAAAAAAIAPf/AQAAAAAAAAAJAPf/AQABAAAAAAAKAPf/AQACAAAAAAAFAPH/AQAAAAAAAAAGAPH/AQABAAAAAAAHAPH/AQACAAAAAAALAPT/AQAAAAAAAAAMAPT/AQABAAAAAAANAPT/AQACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAFAPz/AQABAAAAAAAGAPz/AQABAAAAAAAHAPz/AQABAAAAAAAJAPf/AQABAAAAAAAGAPH/AQABAAAAAAAMAPT/AQABAAAAAAAEAPz/AQABAAAAAAAIAPz/AQABAAAAAAAIAPf/AQABAAAAAAAKAPf/AQABAAAAAAALAPT/AQABAAAAAAANAPT/AQABAAAAAAAHAPH/AQABAAAAAAAFAPH/AQABAAAAAAA=")
 tile_set = SubResource("TileSet_1kcfw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Moving Platform/TileMapLayer" unique_id=824035509]
@@ -1844,7 +1844,7 @@ position = Vector2(200, -60)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1820417405]
 z_index = 1
 texture_filter = 1
-position = Vector2(0, 1)
+position = Vector2(12, -4)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pr7xa")
 animation = &"jump"
