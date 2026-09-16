@@ -4,18 +4,20 @@ extends CharacterBody2D
 
 const SPEED := 300.0
 const JUMP_VELOCITY := -800.0
+# The multiplier for cutting jump height (0.3 means they keep 30% of their momentum)
+const JUMP_STOP_MULTIPLIER := 0.2
 
 
 func _physics_process(delta: float) -> void:
-	# Fall.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Move left and right.
+		velocity.y += JUMP_VELOCITY
+		
+	if Input.is_action_just_released("ui_accept") and velocity.y < 0:
+		velocity.y *= JUMP_STOP_MULTIPLIER
+		
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
