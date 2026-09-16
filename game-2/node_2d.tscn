@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dwmevtnm0l6qn"]
+
+[ext_resource type="Texture2D" uid="uid://bqg0xre083n2y" path="res://icon.svg" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://b4r7idlejxu2i" path="res://c7ec1a343c07b5ec9c1e05c703e3ea10.jpg" id="2_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbb63"]
+size = Vector2(123, 121)
+
+[sub_resource type="GDScript" id="GDScript_wg143"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -600.0
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v17k0"]
+size = Vector2(138, 129)
+
+[node name="Node2D" type="Node2D" unique_id=1688263226]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=404879091]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=877537922]
+position = Vector2(528.5, 437.5)
+scale = Vector2(3.9296875, 1.4296875)
+texture = ExtResource("1_0e48y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=672448670]
+position = Vector2(532.4999, 438.50012)
+scale = Vector2(3.9296875, 1.4296875)
+shape = SubResource("RectangleShape2D_gbb63")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=458895596]
+script = SubResource("GDScript_wg143")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=293309506]
+position = Vector2(378, 226)
+scale = Vector2(0.19191547, 0.18274458)
+texture = ExtResource("2_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2052994766]
+position = Vector2(383, 225)
+shape = SubResource("RectangleShape2D_v17k0")
