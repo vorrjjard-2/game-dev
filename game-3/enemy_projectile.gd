@@ -9,7 +9,7 @@ func _ready() -> void:
 	add_to_group("enemy_projectile")
 	rotation = direction.angle()
 	body_entered.connect(_on_body_entered)
-	get_tree().create_timer(2.0).timeout.connect(queue_free)
+	get_tree().create_timer(5.0).timeout.connect(queue_free)
 
 func _physics_process(delta: float) -> void:
 	position += direction * SPEED * delta
