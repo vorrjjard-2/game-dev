@@ -3,10 +3,13 @@ extends CharacterBody2D
 @onready var body = self
 @onready var animated_sprite = $AnimatedSprite2D
 
+
+var health = 100
 const SPEED := 300.0
 
 func _ready() -> void:
 	animated_sprite.play("idle")
+	
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
