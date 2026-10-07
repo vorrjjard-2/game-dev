@@ -3774,14 +3774,13 @@ tile_map_data = PackedByteArray("AAD+//7/CQABAAEAAAD+////CQABAAoAAAD+/wAACQABAAo
 tile_set = SubResource("TileSet_pr7xa")
 
 [node name="Enemy" type="CharacterBody2D" parent="." unique_id=2016755325]
+position = Vector2(-100, 0)
 script = ExtResource("18_fs4d3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=668830380]
 texture_filter = 1
-position = Vector2(-133, 0)
 sprite_frames = SubResource("SpriteFrames_xiu7j")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=1172788897]
-position = Vector2(-130, 0)
 shape = SubResource("CircleShape2D_1kcfw")

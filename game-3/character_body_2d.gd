@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 const ARROW_SCENE := preload("res://arrow.tscn")
 var facing := Vector2.RIGHT
-const SPEED := 300.0
+const SPEED := 200.0
 
 func _ready() -> void:
 	animated_sprite.play("idle")
