@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var body = self
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hurt_collision: Area2D = $Area2D
+@onready var player_collision: Area2D = $Area2D
 var player: Node2D
 const SPEED = 50.0
 var is_hurting: bool = false
@@ -16,7 +16,6 @@ func _physics_process(_delta: float) -> void:
 	if not is_instance_valid(player):
 		_find_player()
 		return
-
 	if is_hurting:
 		velocity = Vector2.ZERO
 		animated_sprite.play("hurt")
@@ -29,7 +28,7 @@ func _physics_process(_delta: float) -> void:
 			animated_sprite.flip_h = velocity.x < 0
 
 	move_and_slide()
-	if is_on_wall() and not is_hurting:
+	if is_on_wall():
 		animated_sprite.play("idle")
 		
 func _find_player() -> void:
@@ -42,3 +41,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == player or body.is_in_group("player"):
 		is_hurting = false
+		
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("projectile") and not is_hurting:
+		is_hurting = true
+		area.queue_free()
+		animated_sprite.play("hurt")

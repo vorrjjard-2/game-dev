@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://k6hbi184o5jx" path="res://Tiny RPG Character Asset Pack 01 v2.0 -Free Soldier&Orc/Arrow(Projectile)/Arrow01(32x32).png" id="1_l5ahi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbb63"]
-size = Vector2(20, 7)
+size = Vector2(16, 5)
 
 [node name="Arrow" type="Area2D" unique_id=724070301]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_2ndhl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=809760904]

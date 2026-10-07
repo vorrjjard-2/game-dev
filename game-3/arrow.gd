@@ -6,6 +6,7 @@ var direction := Vector2.RIGHT
 var shooter: Node = null
 
 func _ready() -> void:
+	add_to_group("projectile")
 	rotation = direction.angle()
 	body_entered.connect(_on_body_entered)
 	get_tree().create_timer(2.0).timeout.connect(queue_free) # remove arrows every 2 sec
