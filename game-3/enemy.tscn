@@ -155,6 +155,11 @@ size = Vector2(12, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vxoj"]
 size = Vector2(16, 16)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubxs6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sx1l"]
+bg_color = Color(0.8743154, 0, 0.13025281, 1)
+
 [node name="Enemy" type="CharacterBody2D" unique_id=762941587 groups=["enemy"]]
 collision_layer = 3
 collision_mask = 3
@@ -179,6 +184,17 @@ shape = SubResource("RectangleShape2D_7vxoj")
 [node name="Timer" type="Timer" parent="." unique_id=1794857922]
 wait_time = 1.5
 autostart = true
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1480019027]
+offset_left = -8.0
+offset_top = -17.0
+offset_right = 7.0
+offset_bottom = -14.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ubxs6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6sx1l")
+max_value = 50.0
+value = 50.0
+show_percentage = false
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
