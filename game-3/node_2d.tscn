@@ -197,7 +197,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k73cj"]
-size = Vector2(16, 30)
+size = Vector2(16, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rjqkl"]
 size = Vector2(27, 36)
@@ -3652,7 +3652,7 @@ sprite_frames = SubResource("SpriteFrames_pr7xa")
 animation = &"hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=247195063]
-position = Vector2(-4, -5)
+position = Vector2(-4, -3)
 shape = SubResource("RectangleShape2D_k73cj")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=67141041]

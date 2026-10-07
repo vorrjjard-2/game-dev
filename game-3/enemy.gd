@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var hurt_collision: Area2D = $Area2D
 var player: Node2D
 const SPEED = 50.0
+var is_hurting: bool = false
 
 func _ready() -> void:
 	animated_sprite.play("idle")
@@ -15,7 +16,6 @@ func _physics_process(_delta: float) -> void:
 	if not is_instance_valid(player):
 		_find_player()
 		return
-	var is_hurting := hurt_collision.get_overlapping_bodies().has(player)
 
 	if is_hurting:
 		velocity = Vector2.ZERO
@@ -37,8 +37,8 @@ func _find_player() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == player or body.is_in_group("player"):
-		pass
+		is_hurting = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == player or body.is_in_group("player"):
-		pass
+		is_hurting = false
