@@ -40,7 +40,6 @@ func _physics_process(delta: float) -> void:
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
-		print("Area entered by: ", body.name, " | Groups: ", body.get_groups())
 		is_hurting = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
