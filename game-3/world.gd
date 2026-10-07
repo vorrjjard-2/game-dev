@@ -15,14 +15,14 @@ func start_spawn_loop() -> void:
 		await get_tree().create_timer(wait_time).timeout		
 		spawn_enemy()
 
-# func _unhandled_input(event: InputEvent) -> void:
-#	if event.is_action_pressed("ui_accept"):
-#		spawn_enemy()
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		spawn_enemy()
 
 func spawn_enemy() -> void:
 	var enemy = ENEMY_SCENE.instantiate() as CharacterBody2D
 	var facing_dir := Vector2.RIGHT
-	if player is CharacterBody2D and player.velocity != Vector2.ZERO:
+	if player is CharacterBody2D:
 		facing_dir = player.facing
 
 	var spawn_pos = player.global_position + (facing_dir * SPAWN_DISTANCE)

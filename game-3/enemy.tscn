@@ -149,11 +149,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1kcfw"]
-radius = 8.062258
+[sub_resource type="CircleShape2D" id="CircleShape2D_epg4t"]
+radius = 7.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pr7xa"]
-radius = 11.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_iifgy"]
 
 [node name="Enemy" type="CharacterBody2D" unique_id=762941587 groups=["enemy"]]
 collision_layer = 3
@@ -167,15 +166,14 @@ sprite_frames = SubResource("SpriteFrames_1kcfw")
 animation = &"hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613317956]
-visible = false
-shape = SubResource("CircleShape2D_1kcfw")
+shape = SubResource("CircleShape2D_epg4t")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=329761505 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1841276136]
-shape = SubResource("CircleShape2D_pr7xa")
+shape = SubResource("CircleShape2D_iifgy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

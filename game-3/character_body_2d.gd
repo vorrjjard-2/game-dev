@@ -10,13 +10,11 @@ var is_hurting: bool = false
 
 func _ready() -> void:
 	animated_sprite.play("idle")
-	
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if is_hurting:
 			animated_sprite.play("hurt")
-			facing = direction.normalized()
 			velocity = direction * SPEED
 			move_and_slide()
 	else: 
