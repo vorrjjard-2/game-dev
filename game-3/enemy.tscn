@@ -150,9 +150,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fs4d3"]
-size = Vector2(14, 14)
+size = Vector2(12, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vxoj"]
+size = Vector2(16, 16)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=762941587 groups=["enemy"]]
 collision_layer = 3
@@ -174,6 +175,10 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1841276136]
 shape = SubResource("RectangleShape2D_7vxoj")
+
+[node name="Timer" type="Timer" parent="." unique_id=1794857922]
+wait_time = 1.5
+autostart = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

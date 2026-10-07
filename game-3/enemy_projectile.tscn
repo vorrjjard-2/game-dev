@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dkkpxf51a3n7q"]
+
+[ext_resource type="Script" uid="uid://b4kkqqpjhcosc" path="res://enemy_projectile.gd" id="1_vpq67"]
+[ext_resource type="Texture2D" uid="uid://jkk6wnwchv77" path="res://Effect and Bullet 16x16/Fire Effect and Bullet 16x16.png" id="2_ccnu0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pr7xa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe428"]
+atlas = ExtResource("2_ccnu0")
+region = Rect2(80, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_howdh"]
+atlas = ExtResource("2_ccnu0")
+region = Rect2(64, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf1ok"]
+atlas = ExtResource("2_ccnu0")
+region = Rect2(48, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv88h"]
+atlas = ExtResource("2_ccnu0")
+region = Rect2(32, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny3vx"]
+atlas = ExtResource("2_ccnu0")
+region = Rect2(16, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l5df"]
+atlas = ExtResource("2_ccnu0")
+region = Rect2(0, 0, 16, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kcfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe428")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_howdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf1ok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv88h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny3vx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l5df")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="enemy_projectile" type="Area2D" unique_id=690470168]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_vpq67")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=62654009]
+shape = SubResource("CircleShape2D_pr7xa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=700187206]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1kcfw")

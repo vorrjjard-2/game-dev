@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = move_toward(velocity.y, 0, SPEED)	
 			animated_sprite.play("idle")
 		move_and_slide()
+		
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
@@ -44,7 +45,14 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("enemy"):
 		is_hurting = false
 
-	
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy_projectile") and not is_hurting:
+		is_hurting = true
+		area.queue_free()
+		animated_sprite.play("hurt")
+		await animated_sprite.animation_finished
+		is_hurting = false
+		
 func shoot() -> void:
 	var arrow := ARROW_SCENE.instantiate()
 	arrow.direction = facing
