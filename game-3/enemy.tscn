@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dmdtisnopah0t" path="res://Tiny RPG Character Asset Pack 02 -Free Demon_A&Blood Monster_A/Characters(100x100 split)/Demon_A/Demon_A with shadows/Demon_A_Hurt.png" id="2_epg4t"]
 [ext_resource type="Texture2D" uid="uid://kpumibyooydu" path="res://Tiny RPG Character Asset Pack 02 -Free Demon_A&Blood Monster_A/Characters(100x100 split)/Demon_A/Demon_A with shadows/Demon_A_Idle.png" id="2_iifgy"]
 [ext_resource type="Texture2D" uid="uid://07e1vlknd0i5" path="res://Tiny RPG Character Asset Pack 02 -Free Demon_A&Blood Monster_A/Characters(100x100 split)/Demon_A/Demon_A with shadows/Demon_A_Walk.png" id="3_epg4t"]
+[ext_resource type="Script" uid="uid://c25dktx544ow6" path="res://area_2d.gd" id="5_epg4t"]
+[ext_resource type="Texture2D" uid="uid://ba0ax67ax6auf" path="res://Free Smoke Fx Pixel 2/Free Smoke Fx  Pixel 04.png" id="6_3yqyl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8q82m"]
 atlas = ExtResource("2_epg4t")
@@ -160,6 +162,85 @@ size = Vector2(16, 16)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sx1l"]
 bg_color = Color(0.8743154, 0, 0.13025281, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpbtr"]
+atlas = ExtResource("6_3yqyl")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgdfx"]
+atlas = ExtResource("6_3yqyl")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qku5p"]
+atlas = ExtResource("6_3yqyl")
+region = Rect2(128, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1fjw"]
+atlas = ExtResource("6_3yqyl")
+region = Rect2(192, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5wqg"]
+atlas = ExtResource("6_3yqyl")
+region = Rect2(256, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgro5"]
+atlas = ExtResource("6_3yqyl")
+region = Rect2(320, 256, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubxs6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpbtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgdfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qku5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1fjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5wqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgro5")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18rq2"]
+atlas = ExtResource("6_3yqyl")
+region = Rect2(0, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccdwq"]
+atlas = ExtResource("6_3yqyl")
+region = Rect2(64, 320, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jgdh"]
+atlas = ExtResource("6_3yqyl")
+region = Rect2(256, 320, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v84b7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18rq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccdwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jgdh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Enemy" type="CharacterBody2D" unique_id=762941587 groups=["enemy"]]
 collision_layer = 3
 collision_mask = 3
@@ -174,9 +255,10 @@ animation = &"hurt"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=613317956]
 shape = SubResource("RectangleShape2D_fs4d3")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=329761505 groups=["enemy"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=329761505 groups=["enemy", "enemy_projectile"]]
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("5_epg4t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1841276136]
 shape = SubResource("RectangleShape2D_7vxoj")
@@ -195,6 +277,16 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_6sx1l")
 max_value = 50.0
 value = 50.0
 show_percentage = false
+
+[node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=738732745]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ubxs6")
+
+[node name="ShotExplosion" type="AnimatedSprite2D" parent="." unique_id=1464795293]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_v84b7")
+frame = 1
+frame_progress = 0.94163203
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

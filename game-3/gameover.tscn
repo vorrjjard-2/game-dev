@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://vyfopb0isgn4"]
+
+[ext_resource type="Script" uid="uid://dosaqlc2la4ax" path="res://button.gd" id="1_4nh4k"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6sx1l"]
+font_size = 128
+
+[node name="Control" type="Control" unique_id=1773471283]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=777105936]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 646.0
+color = Color(0.42288277, 0.4228828, 0.4228828, 1)
+
+[node name="Label" type="Label" parent="." unique_id=305230226]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 113.0
+offset_right = 944.0
+offset_bottom = 288.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_6sx1l")
+
+[node name="Button" type="Button" parent="." unique_id=423934476]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 376.0
+offset_right = 789.0
+offset_bottom = 459.0
+text = "Try Again"
+script = ExtResource("1_4nh4k")

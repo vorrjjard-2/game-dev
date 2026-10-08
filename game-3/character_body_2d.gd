@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var body = self
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var health_bar = $HealthBar
+@onready var explosion_sprite = $"../Explosion"
+@onready var shot_explosion = $"../ShotExplosion"
 
 const ARROW_SCENE := preload("res://arrow.tscn")
 var facing := Vector2.RIGHT
@@ -11,11 +13,13 @@ var is_hurting: bool = false
 var playerHealth = 100
 
 func _ready() -> void:
+	explosion_sprite.visible = false
+	shot_explosion.visible = false
 	health_bar.value = playerHealth
 	animated_sprite.play("idle")
 
 func _physics_process(delta: float) -> void:
-	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction := Input.get_vector("left", "right", "up", "down")
 	if direction:
 		facing = direction.normalized()
 		velocity = direction * SPEED
@@ -41,7 +45,17 @@ func damagePlayer(damage):
 	playerHealth -= damage
 	health_bar.value = playerHealth
 	if playerHealth <= 0:
-		get_tree().quit()
+		set_physics_process(false)
+		animated_sprite.visible = false
+		health_bar.visible = false
+		explosion_sprite.global_position = global_position
+		explosion_sprite.sprite_frames.set_animation_loop("default", false)
+		explosion_sprite.frame = 0
+		explosion_sprite.visible = true
+		explosion_sprite.play("default")
+		await explosion_sprite.animation_finished
+		get_tree().change_scene_to_file("res://gameover.tscn")
+		return
 	is_hurting = false
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -54,9 +68,15 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_projectile") and not is_hurting:
+		shot_explosion.global_position = area.global_position
+		shot_explosion.sprite_frames.set_animation_loop("default", false)
+		shot_explosion.frame = 0
 		damagePlayer(10)
 		area.queue_free()
-		await animated_sprite.animation_finished
+		shot_explosion.visible = true
+		shot_explosion.play("default")
+		await shot_explosion.animation_finished
+		shot_explosion.visible = false
 		
 func shoot() -> void:
 	var arrow := ARROW_SCENE.instantiate()
