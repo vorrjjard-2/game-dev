@@ -54,7 +54,7 @@ func damagePlayer(damage):
 		explosion_sprite.visible = true
 		explosion_sprite.play("default")
 		await explosion_sprite.animation_finished
-		get_tree().change_scene_to_file("res://gameover.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://gameover.tscn")
 		return
 	is_hurting = false
 		

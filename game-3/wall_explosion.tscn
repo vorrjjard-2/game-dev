@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://brsfp2ugkvswb"]
+
+[ext_resource type="Texture2D" uid="uid://ba0ax67ax6auf" path="res://Free Smoke Fx Pixel 2/Free Smoke Fx  Pixel 04.png" id="1_73rkr"]
+[ext_resource type="Script" uid="uid://b1ark2k1uc5jh" path="res://wall_explosion.gd" id="2_08csq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u7jv"]
+atlas = ExtResource("1_73rkr")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24dk6"]
+atlas = ExtResource("1_73rkr")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mryly"]
+atlas = ExtResource("1_73rkr")
+region = Rect2(256, 256, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6sx1l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u7jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24dk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mryly")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ShotExplosion2" type="AnimatedSprite2D" unique_id=809180260]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6sx1l")
+frame = 2
+frame_progress = 0.6683477
+script = ExtResource("2_08csq")

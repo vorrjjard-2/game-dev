@@ -1,6 +1,7 @@
 extends Area2D
 
 const SPEED := 600.0
+const WALL_EXPLOSION_SCENE := preload("res://wall_explosion.tscn")
 
 var direction := Vector2.RIGHT
 var shooter: Node = null
@@ -17,4 +18,11 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body == shooter:
 		return
-	queue_free() 
+	if body is TileMapLayer:
+		explode()
+	queue_free()
+
+func explode() -> void:
+	var explosion := WALL_EXPLOSION_SCENE.instantiate()
+	explosion.global_position = global_position
+	get_parent().add_child(explosion)

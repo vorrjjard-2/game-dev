@@ -1,0 +1,11 @@
+78098b89c88a74ebe8c20117b8754620
+::res://::1793696060
+DESIGN.md::TextFile::-1::1793695636::0::1::::<><><>0<>0<><>::
+icon.svg::CompressedTexture2D::5930234075922844437::1793692795::1793692823::1::::<><><>0<>0<>04908c0a20892a646545c2a9a2de6b9c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://assets/::1793692795
+::res://scenes/::1793695170
+battle.tscn::PackedScene::-1::1793695170::0::1::::<><><>0<>0<><>::res://scenes/combatant.tscn<>res://scripts/battle_handler.gd
+combatant.tscn::PackedScene::-1::1793692982::0::1::::<><><>0<>0<><>::res://scripts/combatant.gd<>res://icon.svg
+::res://scripts/::1793695170
+battle_handler.gd::GDScript::2455571943654642242::1793695163::0::1::::<>Node<><>0<>0<><>::
+combatant.gd::GDScript::6464102148046344793::1793695163::0::1::::<>Node2D<><>0<>0<><>::
