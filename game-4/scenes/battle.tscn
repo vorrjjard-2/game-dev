@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cnb6wj2yh6eae"]
 
-[ext_resource type="PackedScene" path="res://scenes/combatant.tscn" id="1_comb"]
+[ext_resource type="PackedScene" uid="uid://b6jghmnffy21m" path="res://scenes/combatant.tscn" id="1_comb"]
 [ext_resource type="Script" uid="uid://ba8q58j1p0ncs" path="res://scripts/battle_handler.gd" id="2_handler"]
+[ext_resource type="PackedScene" uid="uid://c1leoe77xsvob" path="res://cleric.tscn" id="3_a12nh"]
+[ext_resource type="PackedScene" uid="uid://bf6al6twdgyph" path="res://fighter.tscn" id="3_p1qf1"]
 
 [node name="Battle" type="Node2D" unique_id=1140006866]
 
@@ -10,8 +12,8 @@ script = ExtResource("2_handler")
 
 [node name="PlayerParty" type="Node2D" parent="." unique_id=319534666]
 
-[node name="Fighter" parent="PlayerParty" unique_id=2101762350 instance=ExtResource("1_comb")]
-position = Vector2(320, 200)
+[node name="Fighter" parent="PlayerParty" unique_id=1423359813 instance=ExtResource("3_p1qf1")]
+position = Vector2(328, 204)
 char_name = "Fighter"
 max_hp = 24
 armor_class = 15
@@ -20,8 +22,9 @@ attack_bonus = 5
 damage_sides = 8
 damage_bonus = 3
 
-[node name="Cleric" parent="PlayerParty" unique_id=570424384 instance=ExtResource("1_comb")]
-position = Vector2(260, 360)
+[node name="Combatant" parent="PlayerParty" unique_id=1302476416 instance=ExtResource("3_a12nh")]
+texture_filter = 1
+position = Vector2(259, 361)
 char_name = "Cleric"
 max_hp = 18
 armor_class = 13

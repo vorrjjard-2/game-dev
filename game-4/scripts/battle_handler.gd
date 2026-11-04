@@ -6,7 +6,6 @@ var turn_order = []
 var turn = 0
 var current
 
-
 func _ready():
 	$"../UI/CommandMenu".hide()
 	await get_tree().process_frame
@@ -49,7 +48,7 @@ func start_turn():
 		await get_tree().create_timer(0.7).timeout
 		var alive_players = get_alive(players)
 		var target = alive_players[randi() % alive_players.size()]
-		attack(current, target)
+		await attack(current, target)
 		next_turn()
 
 
@@ -71,7 +70,12 @@ func next_turn():
 	start_turn()
 
 
-func attack(attacker, target):
+# Make attack an async function using -> void, and add 'await' calls
+func attack(attacker, target) -> void:
+	# 1. Play attacker's attack animation
+	await attacker.play_animation("attack")
+	await attacker.play_animation("idle")
+
 	var roll = randi_range(1, 20)
 	var total = roll + attacker.attack_bonus
 
@@ -79,6 +83,9 @@ func attack(attacker, target):
 		add_log(attacker.char_name + " attacks " + target.char_name + " and misses! (" + str(total) + " vs AC " + str(target.armor_class) + ")")
 		return
 
+	# 2. Play target's hurt animation on hit
+	await target.play_animation("hurt")
+	await target.play_animation("idle")
 	var dice = attacker.damage_dice
 	if roll == 20:
 		dice = dice * 2
@@ -86,7 +93,7 @@ func attack(attacker, target):
 	var damage = attacker.damage_bonus
 	for i in range(dice):
 		damage = damage + randi_range(1, attacker.damage_sides)
-
+	
 	target.take_damage(damage)
 
 	if roll == 20:
@@ -96,6 +103,8 @@ func attack(attacker, target):
 
 	if target.is_alive() == false:
 		add_log(target.char_name + " is down!")
+		await target.play_animation("die") # Optional death animation
+
 
 
 func get_alive(list):
@@ -147,7 +156,7 @@ func _on_attack_button_pressed():
 
 func _on_target_pressed(enemy):
 	$"../UI/TargetMenu".hide()
-	attack(current, enemy)
+	await attack(current, enemy)
 	next_turn()
 
 
