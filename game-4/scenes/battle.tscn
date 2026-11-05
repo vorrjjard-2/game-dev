@@ -90,7 +90,7 @@ text = "Guard"
 layout_mode = 2
 text = "(S) Bloodrage"
 
-[node name="TripleStrikeButton" type="Button" parent="UI/CommandMenu" unique_id=219682134]
+[node name="MultiStrikeButton" type="Button" parent="UI/CommandMenu" unique_id=219682134]
 layout_mode = 2
 text = "(M) Triple Strike"
 
@@ -146,6 +146,7 @@ text = "Restart"
 [connection signal="pressed" from="UI/CommandMenu/AttackButton" to="BattleHandler" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="UI/CommandMenu/GuardButton" to="BattleHandler" method="_on_guard_button_pressed"]
 [connection signal="pressed" from="UI/CommandMenu/BloodrageButton" to="BattleHandler" method="_on_bloodrage_button_pressed"]
+[connection signal="pressed" from="UI/CommandMenu/MultiStrikeButton" to="BattleHandler" method="_on_multi_strike_button_pressed"]
 [connection signal="pressed" from="UI/CommandMenu/DevotionButton" to="BattleHandler" method="_on_devotion_button_pressed"]
 [connection signal="pressed" from="UI/TargetMenu/BackButton" to="BattleHandler" method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/ResultPanel/VBox/RestartButton" to="BattleHandler" method="_on_restart_button_pressed"]

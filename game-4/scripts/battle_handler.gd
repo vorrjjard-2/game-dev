@@ -6,7 +6,7 @@ var turn_order = []
 var turn = 0
 var current
 var bloodrage = false
-var triplestrike = false
+var multistrike = false
 var devotion = false
 
 func _ready():
@@ -138,6 +138,13 @@ func devote(attacker, target) -> void:
 	devotion = false
 	add_log(attacker.char_name + "'s DEVOTION wears out")
 
+func multi(attacker) -> void:
+	if multistrike == true:
+		add_log(attacker.char_name + " MULTISTRIKES the enemies for 5 damage")
+		for enemy in get_alive(enemies):
+			enemy.take_damage(5)
+	multistrike = false
+
 func guard() -> void:
 	current.is_guarding = true
 	add_log(current.char_name + " guards and takes reduced damage until their next turn!")
@@ -242,3 +249,11 @@ func _on_devotion_button_pressed() -> void:
 		$"../UI/TargetMenu".move_child($"../UI/TargetMenu/BackButton", -1)
 		$"../UI/TargetMenu".show()
 	pass # Replace with function body.
+
+func _on_multi_strike_button_pressed() -> void:
+	if current.char_name == "Mage":
+		multistrike = true
+		$"../UI/CommandMenu".hide()
+		add_log("Test")
+		await multi(current)
+	next_turn()
