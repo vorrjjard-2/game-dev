@@ -79,8 +79,10 @@ func next_turn():
 	start_turn()
 
 func attack(attacker, target) -> void:
-	
-	await attacker.play_animation("attack")
+	if bloodrage == true:
+		await attacker.play_animation("bloodrage")
+	else:
+		await attacker.play_animation("attack")
 	attacker.play_animation("idle")
 
 	var roll = randi_range(1, 20)
@@ -144,6 +146,8 @@ func bloodrage_die(attacker) -> void:
 
 func devote(attacker, target) -> void:
 	if devotion == true:
+		await attacker.play_animation("devotion")
+		attacker.play_animation("idle")
 		attacker.take_damage(5)
 		target.take_damage(-5)
 		add_log(attacker.char_name + "'s DEVOTION devotes 5 health to " + target.char_name)
@@ -152,6 +156,8 @@ func devote(attacker, target) -> void:
 
 func multi(attacker) -> void:
 	if multistrike == true:
+		await attacker.play_animation("multistrike")
+		attacker.play_animation("idle")
 		add_log(attacker.char_name + " MULTISTRIKES the enemies for 5 damage")
 		for enemy in get_alive(enemies):
 			enemy.take_damage(5)

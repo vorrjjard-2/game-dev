@@ -1,3 +1,6 @@
 res://scripts/battle_handler.gd
 res://scenes/battle.tscn
 res://scripts/combatant.gd
+res://fighter.tscn
+res://cleric.tscn
+res://mage.tscn

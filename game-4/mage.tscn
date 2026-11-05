@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccvsvj3fk8c7r"]
 
-[ext_resource type="PackedScene" uid="uid://b6jghmnffy21m" path="res://scenes/combatant.tscn" id="1_43ska"]
+[ext_resource type="PackedScene" path="res://scenes/combatant.tscn" id="1_43ska"]
 [ext_resource type="Texture2D" uid="uid://pacfmrtej57b" path="res://assets/characters/mage/sheets/mage_attack_right.png" id="2_0cwdj"]
 [ext_resource type="Texture2D" uid="uid://coif87wpxknhn" path="res://assets/characters/mage/sheets/mage_death_right.png" id="3_0cwdj"]
 [ext_resource type="Texture2D" uid="uid://bwnx6rf2vteme" path="res://assets/characters/mage/sheets/mage_idle_right.png" id="3_21ki8"]
@@ -61,6 +61,26 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("3_21ki8")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cwdj"]
+atlas = ExtResource("2_0cwdj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbmd5"]
+atlas = ExtResource("2_0cwdj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktegw"]
+atlas = ExtResource("2_0cwdj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gdbl"]
+atlas = ExtResource("2_0cwdj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3sui"]
+atlas = ExtResource("2_0cwdj")
+region = Rect2(128, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_a3nql"]
 animations = [{
 "frames": [{
@@ -119,6 +139,44 @@ animations = [{
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cwdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbmd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktegw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gdbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3sui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktegw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gdbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3sui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktegw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gdbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3sui")
+}],
+"loop": 0,
+"name": &"multistrike",
+"speed": 5.0
 }]
 
 [node name="Combatant" unique_id=1423359813 instance=ExtResource("1_43ska")]
@@ -128,7 +186,7 @@ texture_filter = 1
 position = Vector2(1.1920929e-07, -4.5474735e-13)
 scale = Vector2(1.9375, 1.9375)
 sprite_frames = SubResource("SpriteFrames_a3nql")
-animation = &"die"
+animation = &"multistrike"
 
 [node name="NameLabel" parent="." index="1" unique_id=1988625069]
 text = "Mage"

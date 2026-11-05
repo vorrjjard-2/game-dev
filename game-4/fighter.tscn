@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bf6al6twdgyph"]
 
-[ext_resource type="PackedScene" uid="uid://b6jghmnffy21m" path="res://scenes/combatant.tscn" id="1_efvb3"]
+[ext_resource type="PackedScene" path="res://scenes/combatant.tscn" id="1_efvb3"]
 [ext_resource type="Texture2D" uid="uid://by0vjx67ekbac" path="res://assets/characters/Soldier/Soldier_Attack01.png" id="2_l3gly"]
 [ext_resource type="Texture2D" uid="uid://v7hd27cnudl3" path="res://assets/characters/Soldier/Soldier_Death.png" id="3_l3gly"]
 [ext_resource type="Texture2D" uid="uid://by4bvgm6lh63a" path="res://assets/characters/Soldier/Soldier_Idle.png" id="4_f18uy"]
+[ext_resource type="Texture2D" uid="uid://hgw3g0jk873i" path="res://assets/characters/Soldier/Soldier_Attack02.png" id="5_3ypa3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_066e6"]
 atlas = ExtResource("2_l3gly")
@@ -27,6 +28,30 @@ region = Rect2(400, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wydf6"]
 atlas = ExtResource("2_l3gly")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8w1p"]
+atlas = ExtResource("5_3ypa3")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8027c"]
+atlas = ExtResource("5_3ypa3")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3aowc"]
+atlas = ExtResource("5_3ypa3")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a18ex"]
+atlas = ExtResource("5_3ypa3")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6triw"]
+atlas = ExtResource("5_3ypa3")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs0d7"]
+atlas = ExtResource("5_3ypa3")
 region = Rect2(500, 0, 100, 100)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ypa3"]
@@ -96,6 +121,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_r8w1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8027c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3aowc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a18ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6triw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xs0d7")
+}],
+"loop": 0,
+"name": &"bloodrage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3ypa3")
 }, {
 "duration": 1.0,
@@ -142,7 +190,7 @@ texture_filter = 1
 position = Vector2(1.9073486e-06, -1.0000019)
 scale = Vector2(2.830625, 2.830625)
 sprite_frames = SubResource("SpriteFrames_u2ngp")
-animation = &"die"
+animation = &"bloodrage"
 
 [node name="NameLabel" parent="." index="1" unique_id=1988625069]
 text = "Soldier"

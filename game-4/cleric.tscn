@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1leoe77xsvob"]
 
-[ext_resource type="PackedScene" uid="uid://b6jghmnffy21m" path="res://scenes/combatant.tscn" id="1_c14d4"]
+[ext_resource type="PackedScene" path="res://scenes/combatant.tscn" id="1_c14d4"]
 [ext_resource type="Texture2D" uid="uid://cq830s5odohu0" path="res://assets/characters/cleric spritesheet calciumtrice.png" id="2_8hi4o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62t01"]
@@ -42,6 +42,46 @@ region = Rect2(256, 96, 29, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8kp4"]
 atlas = ExtResource("2_8hi4o")
 region = Rect2(288, 96, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm5ki"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1nr7"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl7x8"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi2ad"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p306k"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(128, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fgcj"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(160, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdbq2"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(192, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wuk1"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(224, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1ldy"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(256, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynok8"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(288, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hi4o"]
 atlas = ExtResource("2_8hi4o")
@@ -162,6 +202,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_xm5ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1nr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl7x8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi2ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p306k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fgcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdbq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wuk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1ldy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynok8")
+}],
+"loop": 0,
+"name": &"devotion",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8hi4o")
 }, {
 "duration": 1.0,
@@ -238,7 +313,7 @@ texture_filter = 1
 position = Vector2(9.536743e-07, -1.9073486e-06)
 scale = Vector2(2.0517242, 2.0517242)
 sprite_frames = SubResource("SpriteFrames_t3xp5")
-animation = &"attack"
+animation = &"devotion"
 
 [node name="NameLabel" parent="." index="1" unique_id=1988625069]
 text = "Cleric"
