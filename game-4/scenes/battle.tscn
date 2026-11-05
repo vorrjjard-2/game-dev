@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccvsvj3fk8c7r" path="res://mage.tscn" id="4_6vh42"]
 [ext_resource type="PackedScene" uid="uid://droavpb2bdyc2" path="res://orc.tscn" id="5_6vh42"]
 [ext_resource type="PackedScene" uid="uid://dxgker7nxgy7h" path="res://blood_monster.tscn" id="5_lpir7"]
+[ext_resource type="Texture2D" uid="uid://cawujafmoto4v" path="res://assets/forest_path_day.png" id="7_4k1nj"]
 
 [node name="Battle" type="Node2D" unique_id=1140006866]
 
@@ -66,9 +67,9 @@ damage_bonus = 3
 
 [node name="InitiativeLabel" type="Label" parent="UI" unique_id=417305971]
 offset_left = 1.0
-offset_top = 14.0
+offset_top = 616.0
 offset_right = 1121.0
-offset_bottom = 37.0
+offset_bottom = 639.0
 text = "Initiative: -"
 horizontal_alignment = 1
 
@@ -142,6 +143,12 @@ horizontal_alignment = 1
 [node name="RestartButton" type="Button" parent="UI/ResultPanel/VBox" unique_id=1695169501]
 layout_mode = 2
 text = "Restart"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1252666477]
+z_index = -2
+position = Vector2(492, 99)
+scale = Vector2(1.436828, 1.7096435)
+texture = ExtResource("7_4k1nj")
 
 [connection signal="pressed" from="UI/CommandMenu/AttackButton" to="BattleHandler" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="UI/CommandMenu/GuardButton" to="BattleHandler" method="_on_guard_button_pressed"]

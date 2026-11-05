@@ -1,13 +1,14 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1793840363
-blood_monster.tscn::PackedScene::8786606977334045543::1793840363::0::1::::<><><>0<>0<><>::
-cleric.tscn::PackedScene::6620727587367979441::1793840363::0::1::::<><><>0<>0<><>::
+::res://::1793840380
+blood_monster.tscn::PackedScene::8786606977334045543::1793840378::0::1::::<><><>0<>0<><>::
+cleric.tscn::PackedScene::6620727587367979441::1793840378::0::1::::<><><>0<>0<><>::
 DESIGN.md::TextFile::-1::1793810354::0::1::::<><><>0<>0<><>::
-fighter.tscn::PackedScene::2801381914571060677::1793840363::0::1::::<><><>0<>0<><>::
+fighter.tscn::PackedScene::2801381914571060677::1793840378::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::5930234075922844437::1793810354::1793840380::1::::<><><>0<>0<>04908c0a20892a646545c2a9a2de6b9c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-mage.tscn::PackedScene::4957701911245837217::1793840363::0::1::::<><><>0<>0<><>::
-orc.tscn::PackedScene::8381411973777988487::1793840363::0::1::::<><><>0<>0<><>::
-::res://assets/::1793840362
+mage.tscn::PackedScene::4957701911245837217::1793840378::0::1::::<><><>0<>0<><>::
+orc.tscn::PackedScene::8381411973777988487::1793840378::0::1::::<><><>0<>0<><>::
+::res://assets/::1793849803
+forest_path_day.png::CompressedTexture2D::4819488098264710367::1793849803::1793849803::1::::<><><>0<>0<>80858fc5653ab3124bf9043c24415502<>res://.godot/imported/forest_path_day.png-f6195393a072cf1e55bcfbeb200924e6.ctex::
 ::res://assets/characters/::1793840363
 cleric spritesheet calciumtrice.png::CompressedTexture2D::5965733044528875325::1793840362::1793840362::1::::<><><>0<>0<>2270855394bd1e75d3a2625fcddc572b<>res://.godot/imported/cleric spritesheet calciumtrice.png-1d48abe5cba77bbbbef912b8e175e215.ctex::
 ::res://assets/characters/Blood Monster_A/::1793840362
@@ -298,8 +299,8 @@ Soldier_Death.png::CompressedTexture2D::1540457648532901198::1793840362::1793840
 Soldier_Hurt.png::CompressedTexture2D::3150676060311037584::1793840362::1793840362::1::::<><><>0<>0<>2b9eac97af134471064d994b00bb7280<>res://.godot/imported/Soldier_Hurt.png-bd6bb2f146e41daa282498fb150d7f26.ctex::
 Soldier_Idle.png::CompressedTexture2D::4130918439639644668::1793840362::1793840362::1::::<><><>0<>0<>43fd6d8d6b6a061f516f0e99daa9b24a<>res://.godot/imported/Soldier_Idle.png-b1c59d21a31da620b2c95aaee02172b0.ctex::
 Soldier_Walk.png::CompressedTexture2D::2907496382318324952::1793840362::1793840362::1::::<><><>0<>0<>38534f615fbc3c8b98111b14b793e58f<>res://.godot/imported/Soldier_Walk.png-11633063dbc02f4f0a834d564c03f61c.ctex::
-::res://scenes/::1793840363
-battle.tscn::PackedScene::5689282742197249084::1793840363::0::1::::<><><>0<>0<><>::res://scenes/combatant.tscn<>uid://ba8q58j1p0ncs::::res://scripts/battle_handler.gd
+::res://scenes/::1793847598
+battle.tscn::PackedScene::5689282742197249084::1793847598::0::1::::<><><>0<>0<><>::uid://ba8q58j1p0ncs::::res://scripts/battle_handler.gd<>uid://c1leoe77xsvob::::res://cleric.tscn<>uid://bf6al6twdgyph::::res://fighter.tscn<>uid://ccvsvj3fk8c7r::::res://mage.tscn<>uid://droavpb2bdyc2::::res://orc.tscn<>uid://dxgker7nxgy7h::::res://blood_monster.tscn
 combatant.tscn::PackedScene::-1::1793840363::0::1::::<><><>0<>0<><>::res://scripts/combatant.gd<>res://icon.svg
 ::res://scenes/characters/::1793840363
 ::res://scenes/characters/farmer/::1793840363
@@ -564,6 +565,6 @@ paladin_default_walk_s_07.png::CompressedTexture2D::1248047730054270132::1793840
 ::res://scenes/characters/paladin/sheets/::1793840363
 paladin_default_idle_s.png::CompressedTexture2D::2196429390843462160::1793840363::1793840363::1::::<><><>0<>0<>27c7fc7acaee20db3173767adadddec4<>res://.godot/imported/paladin_default_idle_s.png-5fc4125dc95c63eebae4f7429f914db0.ctex::
 paladin_default_walk_s.png::CompressedTexture2D::5801515733427270971::1793840363::1793840363::1::::<><><>0<>0<>11a40a4000363b619a8e405045c9a99b<>res://.godot/imported/paladin_default_walk_s.png-e4e512a7e869c2fcced1bd40d7d6fd7c.ctex::
-::res://scripts/::1793840363
-battle_handler.gd::GDScript::2455571943654642242::1793840363::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/::1793849571
+battle_handler.gd::GDScript::2455571943654642242::1793849571::0::1::::<>Node<><>0<>0<><>::
 combatant.gd::GDScript::6464102148046344793::1793840363::0::1::::<>Node2D<><>0<>0<><>::
