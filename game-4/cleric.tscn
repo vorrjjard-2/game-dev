@@ -307,6 +307,7 @@ animations = [{
 }]
 
 [node name="Combatant" unique_id=1423359813 instance=ExtResource("1_c14d4")]
+char_name = "Cleric"
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=149103925]
 texture_filter = 1

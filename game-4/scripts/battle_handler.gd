@@ -49,6 +49,15 @@ func start_turn():
 	if current.is_player:
 		add_log(current.char_name + "'s turn")
 		$"../UI/CommandMenu".show()
+		$"../UI/CommandMenu/BloodrageButton".hide()
+		$"../UI/CommandMenu/MultiStrikeButton".hide()
+		$"../UI/CommandMenu/DevotionButton".hide()
+		if current.char_name == "Fighter":
+			$"../UI/CommandMenu/BloodrageButton".show()
+		elif current.char_name == "Mage":
+			$"../UI/CommandMenu/MultiStrikeButton".show()
+		elif current.char_name == "Cleric":
+			$"../UI/CommandMenu/DevotionButton".show()
 	else:
 		await get_tree().create_timer(0.7).timeout
 		var alive_players = get_alive(players)
@@ -266,7 +275,6 @@ func _on_devotion_button_pressed() -> void:
 
 		$"../UI/TargetMenu".move_child($"../UI/TargetMenu/BackButton", -1)
 		$"../UI/TargetMenu".show()
-	pass # Replace with function body.
 
 func _on_multi_strike_button_pressed() -> void:
 	if current.char_name == "Mage":
