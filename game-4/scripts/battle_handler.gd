@@ -5,6 +5,9 @@ var enemies = []
 var turn_order = []
 var turn = 0
 var current
+var bloodrage = false
+var triplestrike = false
+var devotion = false
 
 func _ready():
 	$"../UI/CommandMenu".hide()
@@ -83,26 +86,45 @@ func attack(attacker, target) -> void:
 	var roll = randi_range(1, 20)
 	var total = roll + attacker.attack_bonus
 
-	if roll == 1 or (roll != 20 and total < target.armor_class):
-		add_log(attacker.char_name + " attacks " + target.char_name + " and misses! (" + str(total) + " vs AC " + str(target.armor_class) + ")")
-		return
-
 	var dice = attacker.damage_dice
 	if roll == 20:
 		dice = dice * 2
 
 	var damage = attacker.damage_bonus
+	var target_damage = 0
 	for i in range(dice):
 		damage = damage + randi_range(1, attacker.damage_sides)
-	
+
+	if roll == 1 or (roll != 20 and total < target.armor_class):
+		if attacker.char_name == "Fighter" and bloodrage == true:
+			attacker.take_damage(damage)
+			add_log(attacker.char_name + " BLOODRAGES " + target.char_name + " and misses! (" + str(total) + " vs AC " + str(target.armor_class) + ")")
+			add_log(attacker.char_name + "'s BLOODRAGE deals " + str(damage) + " to himself.")
+			bloodrage = false
+		else:
+			add_log(attacker.char_name + " attacks " + target.char_name + " and misses! (" + str(total) + " vs AC " + str(target.armor_class) + ")")
+		return
+		
 	if target.is_guarding:
-		damage = damage * 0.5
-	target.take_damage(damage)
+		target_damage = damage * 0.5
+	target.take_damage(target_damage)
 
 	if roll == 20:
-		add_log("CRITICAL HIT! " + attacker.char_name + " hits " + target.char_name + " for " + str(damage) + " damage!")
+		if attacker.char_name == "Fighter" and bloodrage == true:
+			attacker.take_damage(damage)
+			add_log("CRITICAL HIT! " + attacker.char_name + " BLOODRAGES " + target.char_name + " for " + str(target_damage*2) + " damage!")
+			add_log(attacker.char_name + "'s BLOODRAGE deals " + str(damage) + " to himself.")
+			bloodrage = false
+		else:
+			add_log("CRITICAL HIT! " + attacker.char_name + " hits " + target.char_name + " for " + str(damage) + " damage!")
 	else:
-		add_log(attacker.char_name + " hits " + target.char_name + " for " + str(damage) + " damage (" + str(total) + " vs AC " + str(target.armor_class) + ")")
+		if attacker.char_name == "Fighter" and bloodrage == true:
+			attacker.take_damage(damage)
+			add_log(attacker.char_name + " BLOODRAGES " + target.char_name + " for " + str(damage*2) + " damage (" + str(total) + " vs AC " + str(target.armor_class) + ")")
+			add_log(attacker.char_name + "'s BLOODRAGE deals " + str(damage) + " to himself.")
+			bloodrage = false
+		else:
+			add_log(attacker.char_name + " hits " + target.char_name + " for " + str(damage) + " damage (" + str(total) + " vs AC " + str(target.armor_class) + ")")
 
 	if target.is_alive() == false:
 		add_log(target.char_name + " is down!")
@@ -178,3 +200,13 @@ func _on_guard_button_pressed():
 	$"../UI/CommandMenu".hide()
 	guard()
 	next_turn()
+
+
+func _on_bloodrage_button_pressed() -> void:
+	if bloodrage == false:
+		bloodrage = true
+		add_log("Fighter's BLOODRAGE enabled")
+	else:
+		bloodrage = false
+		add_log("Fighter's BLOODRAGE disabled")
+	pass # Replace with function body.

@@ -86,6 +86,18 @@ text = "Attack"
 layout_mode = 2
 text = "Guard"
 
+[node name="BloodrageButton" type="Button" parent="UI/CommandMenu" unique_id=1184862857]
+layout_mode = 2
+text = "(S) Bloodrage"
+
+[node name="TripleStrikeButton" type="Button" parent="UI/CommandMenu" unique_id=219682134]
+layout_mode = 2
+text = "(M) Triple Strike"
+
+[node name="DevotionButton" type="Button" parent="UI/CommandMenu" unique_id=84134032]
+layout_mode = 2
+text = "(C) Devotion"
+
 [node name="TargetMenu" type="VBoxContainer" parent="UI" unique_id=129742876]
 visible = false
 offset_left = 232.0
@@ -133,5 +145,6 @@ text = "Restart"
 
 [connection signal="pressed" from="UI/CommandMenu/AttackButton" to="BattleHandler" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="UI/CommandMenu/GuardButton" to="BattleHandler" method="_on_guard_button_pressed"]
+[connection signal="pressed" from="UI/CommandMenu/BloodrageButton" to="BattleHandler" method="_on_bloodrage_button_pressed"]
 [connection signal="pressed" from="UI/TargetMenu/BackButton" to="BattleHandler" method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/ResultPanel/VBox/RestartButton" to="BattleHandler" method="_on_restart_button_pressed"]
