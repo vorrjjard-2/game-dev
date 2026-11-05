@@ -1,0 +1,50 @@
+GIMP Palette
+Name: Fantasy RPG Characters
+Columns: 8
+#
+ 20  15  30	outline
+ 37  30  54	navy 1
+ 59  52  83	navy 2
+ 88  82 116	navy 3
+124 134 162	steel 1
+168 179 200	steel 2
+216 223 234	steel 3
+252 252 242	white
+163  92  73	skin 1
+224 154 122	skin 2
+248 207 170	skin 3
+ 90  48  39	tan skin 1
+140  80  55	tan skin 2
+186 122  82	tan skin 3
+ 61  37  39	wood 1
+106  61  44	wood 2
+156 101  64	wood 3
+207 155  98	leather
+194 134  40	gold 1
+243 194  79	gold 2
+255 240 164	glow
+ 30  44 100	blue 1
+ 46  88 168	blue 2
+ 75 140 224	blue 3
+160 208 255	blue 4
+ 58  28  86	purple 1
+101  50 147	purple 2
+151  89 202	purple 3
+209 159 240	purple 4
+ 78  16  36	crimson 1
+141  29  51	crimson 2
+209  60  58	crimson 3
+255 130 102	crimson 4
+ 23  59  43	green 1
+ 44 107  59	green 2
+ 79 160  73	green 3
+168 220 108	green 4
+ 18  67  77	teal 1
+ 32 128 138	teal 2
+ 69 196 182	teal 3
+169 240 219	teal 4
+181  80  28	orange 1
+238 142  48	orange 2
+138 118  96	linen 1
+200 179 141	linen 2
+239 226 194	linen 3

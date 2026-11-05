@@ -6,7 +6,6 @@ var turn_order = []
 var turn = 0
 var current
 
-
 func _ready():
 	$"../UI/CommandMenu".hide()
 	await get_tree().process_frame
@@ -41,7 +40,9 @@ func sort_by_initiative(a, b):
 func start_turn():
 	current = turn_order[turn]
 	current.get_node("TurnMarker").visible = true
-
+	if current.is_guarding:
+		current.is_guarding = false
+	
 	if current.is_player:
 		add_log(current.char_name + "'s turn")
 		$"../UI/CommandMenu".show()
@@ -49,7 +50,11 @@ func start_turn():
 		await get_tree().create_timer(0.7).timeout
 		var alive_players = get_alive(players)
 		var target = alive_players[randi() % alive_players.size()]
-		attack(current, target)
+		var action = randi_range(1,2)
+		if action == 1:
+			await attack(current, target)
+		else:
+			await guard()
 		next_turn()
 
 
@@ -70,8 +75,11 @@ func next_turn():
 
 	start_turn()
 
+func attack(attacker, target) -> void:
+	
+	await attacker.play_animation("attack")
+	attacker.play_animation("idle")
 
-func attack(attacker, target):
 	var roll = randi_range(1, 20)
 	var total = roll + attacker.attack_bonus
 
@@ -86,7 +94,9 @@ func attack(attacker, target):
 	var damage = attacker.damage_bonus
 	for i in range(dice):
 		damage = damage + randi_range(1, attacker.damage_sides)
-
+	
+	if target.is_guarding:
+		damage = damage * 0.5
 	target.take_damage(damage)
 
 	if roll == 20:
@@ -96,7 +106,11 @@ func attack(attacker, target):
 
 	if target.is_alive() == false:
 		add_log(target.char_name + " is down!")
+		await target.play_animation("die") # Optional death animation
 
+func guard() -> void:
+	current.is_guarding = true
+	add_log(current.char_name + " guards and takes reduced damage until their next turn!")
 
 func get_alive(list):
 	var alive = []
@@ -147,7 +161,7 @@ func _on_attack_button_pressed():
 
 func _on_target_pressed(enemy):
 	$"../UI/TargetMenu".hide()
-	attack(current, enemy)
+	await attack(current, enemy)
 	next_turn()
 
 
@@ -158,3 +172,9 @@ func _on_back_button_pressed():
 
 func _on_restart_button_pressed():
 	get_tree().reload_current_scene()
+
+
+func _on_guard_button_pressed():
+	$"../UI/CommandMenu".hide()
+	guard()
+	next_turn()

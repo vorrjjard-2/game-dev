@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://dxgker7nxgy7h"]
+
+[ext_resource type="PackedScene" uid="uid://b6jghmnffy21m" path="res://scenes/combatant.tscn" id="1_2ni82"]
+[ext_resource type="Texture2D" uid="uid://cd2opo83c6c2f" path="res://assets/characters/Blood Monster_A/Blood Monster_A_Attack01.png" id="2_xd4wk"]
+[ext_resource type="Texture2D" uid="uid://dehi4xe1fwx8h" path="res://assets/characters/Blood Monster_A/Blood Monster_A_Idle.png" id="3_kppg5"]
+[ext_resource type="Texture2D" uid="uid://dkvpyrob8cau5" path="res://assets/characters/Blood Monster_A/Blood Monster_A_Death.png" id="3_xd4wk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pgim"]
+atlas = ExtResource("2_xd4wk")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1r886"]
+atlas = ExtResource("2_xd4wk")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fve56"]
+atlas = ExtResource("2_xd4wk")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb7xg"]
+atlas = ExtResource("2_xd4wk")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c6ir"]
+atlas = ExtResource("2_xd4wk")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7gto"]
+atlas = ExtResource("2_xd4wk")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6j8q"]
+atlas = ExtResource("2_xd4wk")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1a7h"]
+atlas = ExtResource("2_xd4wk")
+region = Rect2(700, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kppg5"]
+atlas = ExtResource("3_xd4wk")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jdyd"]
+atlas = ExtResource("3_xd4wk")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuy7f"]
+atlas = ExtResource("3_xd4wk")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tf1gy"]
+atlas = ExtResource("3_xd4wk")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg1uw"]
+atlas = ExtResource("3_kppg5")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yqov"]
+atlas = ExtResource("3_kppg5")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7wnq"]
+atlas = ExtResource("3_kppg5")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrffo"]
+atlas = ExtResource("3_kppg5")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gkqj"]
+atlas = ExtResource("3_kppg5")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff03i"]
+atlas = ExtResource("3_kppg5")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8jdyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pgim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1r886")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fve56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb7xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c6ir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7gto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6j8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1a7h")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kppg5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jdyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuy7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tf1gy")
+}],
+"loop": 0,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg1uw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yqov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7wnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrffo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gkqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff03i")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Combatant" unique_id=1423359813 instance=ExtResource("1_2ni82")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=149103925]
+texture_filter = 1
+position = Vector2(1.9073486e-06, -1.9073486e-06)
+scale = Vector2(2.0199997, 2.0199997)
+sprite_frames = SubResource("SpriteFrames_8jdyd")
+animation = &"die"
+flip_h = true
+
+[node name="NameLabel" parent="." index="1" unique_id=1988625069]
+text = "Blood Monster"
+
+[node name="HPBar" parent="." index="2" unique_id=446904273]
+modulate = Color(1, 0, 0, 1)

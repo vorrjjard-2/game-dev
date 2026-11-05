@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://b6jghmnffy21m"]
 
-[ext_resource type="Script" path="res://scripts/combatant.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://icon.svg" id="1_icon"]
+[ext_resource type="Script" uid="uid://cydi22te8bd1b" path="res://scripts/combatant.gd" id="1_script"]
 
-[node name="Combatant" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pr7xa"]
+
+[node name="Combatant" type="Node2D" unique_id=1423359813]
 script = ExtResource("1_script")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_icon")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=149103925]
+sprite_frames = SubResource("SpriteFrames_pr7xa")
 
-[node name="NameLabel" type="Label" parent="."]
+[node name="NameLabel" type="Label" parent="." unique_id=1988625069]
 offset_left = -60.0
 offset_top = -75.0
 offset_right = 60.0
@@ -18,7 +18,7 @@ offset_bottom = -52.0
 text = "Name"
 horizontal_alignment = 1
 
-[node name="HPBar" type="ProgressBar" parent="."]
+[node name="HPBar" type="ProgressBar" parent="." unique_id=446904273]
 offset_left = -45.0
 offset_top = 45.0
 offset_right = 45.0
@@ -27,7 +27,7 @@ max_value = 20.0
 value = 20.0
 show_percentage = false
 
-[node name="HPLabel" type="Label" parent="."]
+[node name="HPLabel" type="Label" parent="." unique_id=764045764]
 offset_left = -45.0
 offset_top = 58.0
 offset_right = 45.0
@@ -35,7 +35,7 @@ offset_bottom = 81.0
 text = "20/20"
 horizontal_alignment = 1
 
-[node name="TurnMarker" type="Label" parent="."]
+[node name="TurnMarker" type="Label" parent="." unique_id=2023982478]
 visible = false
 offset_left = -10.0
 offset_top = -100.0
