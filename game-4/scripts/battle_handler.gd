@@ -130,6 +130,14 @@ func attack(attacker, target) -> void:
 		add_log(target.char_name + " is down!")
 		await target.play_animation("die") # Optional death animation
 
+func devote(attacker, target) -> void:
+	if devotion == true:
+		attacker.take_damage(5)
+		target.take_damage(-5)
+		add_log(attacker.char_name + "'s DEVOTION devotes 5 health to " + target.char_name)
+	devotion = false
+	add_log(attacker.char_name + "'s DEVOTION wears out")
+
 func guard() -> void:
 	current.is_guarding = true
 	add_log(current.char_name + " guards and takes reduced damage until their next turn!")
@@ -181,14 +189,19 @@ func _on_attack_button_pressed():
 	$"../UI/TargetMenu".show()
 
 
-func _on_target_pressed(enemy):
+func _on_target_pressed(target):
 	$"../UI/TargetMenu".hide()
-	await attack(current, enemy)
+	if current.char_name == "Cleric" and devotion == true:
+		await devote(current, target)
+	else:
+		await attack(current, target)
 	next_turn()
 
 
 func _on_back_button_pressed():
 	$"../UI/TargetMenu".hide()
+	if devotion == true:
+		devotion = false
 	$"../UI/CommandMenu".show()
 
 
@@ -209,4 +222,23 @@ func _on_bloodrage_button_pressed() -> void:
 	else:
 		bloodrage = false
 		add_log("Fighter's BLOODRAGE disabled")
+	pass # Replace with function body.
+
+func _on_devotion_button_pressed() -> void:
+	if current.char_name == "Cleric":
+		devotion = true
+		$"../UI/CommandMenu".hide()
+
+		for child in $"../UI/TargetMenu".get_children():
+			if child.name != "TargetTitle" and child.name != "BackButton":
+				child.queue_free()
+
+		for ally in get_alive(players):
+			var button = Button.new()
+			button.text = ally.char_name
+			button.pressed.connect(_on_target_pressed.bind(ally))
+			$"../UI/TargetMenu".add_child(button)
+
+		$"../UI/TargetMenu".move_child($"../UI/TargetMenu/BackButton", -1)
+		$"../UI/TargetMenu".show()
 	pass # Replace with function body.

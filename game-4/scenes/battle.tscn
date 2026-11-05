@@ -146,5 +146,6 @@ text = "Restart"
 [connection signal="pressed" from="UI/CommandMenu/AttackButton" to="BattleHandler" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="UI/CommandMenu/GuardButton" to="BattleHandler" method="_on_guard_button_pressed"]
 [connection signal="pressed" from="UI/CommandMenu/BloodrageButton" to="BattleHandler" method="_on_bloodrage_button_pressed"]
+[connection signal="pressed" from="UI/CommandMenu/DevotionButton" to="BattleHandler" method="_on_devotion_button_pressed"]
 [connection signal="pressed" from="UI/TargetMenu/BackButton" to="BattleHandler" method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/ResultPanel/VBox/RestartButton" to="BattleHandler" method="_on_restart_button_pressed"]
