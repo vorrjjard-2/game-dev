@@ -91,44 +91,56 @@ func attack(attacker, target) -> void:
 		dice = dice * 2
 
 	var damage = attacker.damage_bonus
-	var target_damage = 0
+	var target_damage = damage
 	for i in range(dice):
 		damage = damage + randi_range(1, attacker.damage_sides)
 
 	if roll == 1 or (roll != 20 and total < target.armor_class):
 		if attacker.char_name == "Fighter" and bloodrage == true:
-			attacker.take_damage(damage)
+			attacker.take_damage(target_damage)
 			add_log(attacker.char_name + " BLOODRAGES " + target.char_name + " and misses! (" + str(total) + " vs AC " + str(target.armor_class) + ")")
-			add_log(attacker.char_name + "'s BLOODRAGE deals " + str(damage) + " to himself.")
+			add_log(attacker.char_name + "'s BLOODRAGE deals " + str(target_damage) + " to himself.")
+			if attacker.is_alive() == false:
+				bloodrage_die(attacker)
 			bloodrage = false
 		else:
 			add_log(attacker.char_name + " attacks " + target.char_name + " and misses! (" + str(total) + " vs AC " + str(target.armor_class) + ")")
 		return
-		
+	
+	if bloodrage == true:
+		target_damage = damage * 2
 	if target.is_guarding:
 		target_damage = damage * 0.5
 	target.take_damage(target_damage)
 
 	if roll == 20:
 		if attacker.char_name == "Fighter" and bloodrage == true:
-			attacker.take_damage(damage)
-			add_log("CRITICAL HIT! " + attacker.char_name + " BLOODRAGES " + target.char_name + " for " + str(target_damage*2) + " damage!")
-			add_log(attacker.char_name + "'s BLOODRAGE deals " + str(damage) + " to himself.")
+			attacker.take_damage(target_damage)
+			add_log("CRITICAL HIT! " + attacker.char_name + " BLOODRAGES " + target.char_name + " for " + str(target_damage) + " damage!")
+			add_log(attacker.char_name + "'s BLOODRAGE deals " + str(target_damage) + " to himself.")
+			if attacker.is_alive() == false:
+				bloodrage_die(attacker)
 			bloodrage = false
 		else:
-			add_log("CRITICAL HIT! " + attacker.char_name + " hits " + target.char_name + " for " + str(damage) + " damage!")
+			add_log("CRITICAL HIT! " + attacker.char_name + " hits " + target.char_name + " for " + str(target_damage) + " damage!")
 	else:
 		if attacker.char_name == "Fighter" and bloodrage == true:
-			attacker.take_damage(damage)
-			add_log(attacker.char_name + " BLOODRAGES " + target.char_name + " for " + str(damage*2) + " damage (" + str(total) + " vs AC " + str(target.armor_class) + ")")
-			add_log(attacker.char_name + "'s BLOODRAGE deals " + str(damage) + " to himself.")
+			attacker.take_damage(target_damage)
+			add_log(attacker.char_name + " BLOODRAGES " + target.char_name + " for " + str(target_damage) + " damage (" + str(total) + " vs AC " + str(target.armor_class) + ")")
+			add_log(attacker.char_name + "'s BLOODRAGE deals " + str(target_damage) + " to himself.")
+			if attacker.is_alive() == false:
+				bloodrage_die(attacker)
 			bloodrage = false
 		else:
-			add_log(attacker.char_name + " hits " + target.char_name + " for " + str(damage) + " damage (" + str(total) + " vs AC " + str(target.armor_class) + ")")
+			add_log(attacker.char_name + " hits " + target.char_name + " for " + str(target_damage) + " damage (" + str(total) + " vs AC " + str(target.armor_class) + ")")
 
 	if target.is_alive() == false:
 		add_log(target.char_name + " is down!")
 		await target.play_animation("die") # Optional death animation
+
+func bloodrage_die(attacker) -> void:
+	add_log(attacker.char_name + " is down!")
+	await attacker.play_animation("die") # Optional death animation
 
 func devote(attacker, target) -> void:
 	if devotion == true:
@@ -229,7 +241,6 @@ func _on_bloodrage_button_pressed() -> void:
 	else:
 		bloodrage = false
 		add_log("Fighter's BLOODRAGE disabled")
-	pass # Replace with function body.
 
 func _on_devotion_button_pressed() -> void:
 	if current.char_name == "Cleric":
@@ -241,10 +252,11 @@ func _on_devotion_button_pressed() -> void:
 				child.queue_free()
 
 		for ally in get_alive(players):
-			var button = Button.new()
-			button.text = ally.char_name
-			button.pressed.connect(_on_target_pressed.bind(ally))
-			$"../UI/TargetMenu".add_child(button)
+			if ally.hp < ally.max_hp:
+				var button = Button.new()
+				button.text = ally.char_name
+				button.pressed.connect(_on_target_pressed.bind(ally))
+				$"../UI/TargetMenu".add_child(button)
 
 		$"../UI/TargetMenu".move_child($"../UI/TargetMenu/BackButton", -1)
 		$"../UI/TargetMenu".show()
@@ -254,6 +266,5 @@ func _on_multi_strike_button_pressed() -> void:
 	if current.char_name == "Mage":
 		multistrike = true
 		$"../UI/CommandMenu".hide()
-		add_log("Test")
 		await multi(current)
 	next_turn()

@@ -14,7 +14,7 @@ script = ExtResource("2_handler")
 
 [node name="PlayerParty" type="Node2D" parent="." unique_id=319534666]
 
-[node name="Fighter" parent="PlayerParty" unique_id=1423359813 instance=ExtResource("3_p1qf1")]
+[node name="Soldier" parent="PlayerParty" unique_id=1423359813 instance=ExtResource("3_p1qf1")]
 position = Vector2(426, 201)
 char_name = "Fighter"
 max_hp = 24
@@ -88,15 +88,15 @@ text = "Guard"
 
 [node name="BloodrageButton" type="Button" parent="UI/CommandMenu" unique_id=1184862857]
 layout_mode = 2
-text = "(S) Bloodrage"
+text = "Fighter: Bloodrage"
 
 [node name="MultiStrikeButton" type="Button" parent="UI/CommandMenu" unique_id=219682134]
 layout_mode = 2
-text = "(M) Triple Strike"
+text = "Mage: Multi Strike"
 
 [node name="DevotionButton" type="Button" parent="UI/CommandMenu" unique_id=84134032]
 layout_mode = 2
-text = "(C) Devotion"
+text = "Cleric: Devotion"
 
 [node name="TargetMenu" type="VBoxContainer" parent="UI" unique_id=129742876]
 visible = false
