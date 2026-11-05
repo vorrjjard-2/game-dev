@@ -40,7 +40,9 @@ func sort_by_initiative(a, b):
 func start_turn():
 	current = turn_order[turn]
 	current.get_node("TurnMarker").visible = true
-
+	if current.is_guarding:
+		current.is_guarding = false
+	
 	if current.is_player:
 		add_log(current.char_name + "'s turn")
 		$"../UI/CommandMenu".show()
@@ -48,7 +50,11 @@ func start_turn():
 		await get_tree().create_timer(0.7).timeout
 		var alive_players = get_alive(players)
 		var target = alive_players[randi() % alive_players.size()]
-		await attack(current, target)
+		var action = randi_range(1,2)
+		if action == 1:
+			await attack(current, target)
+		else:
+			await guard()
 		next_turn()
 
 
@@ -69,12 +75,10 @@ func next_turn():
 
 	start_turn()
 
-
-# Make attack an async function using -> void, and add 'await' calls
 func attack(attacker, target) -> void:
-	# 1. Play attacker's attack animation
+	
 	await attacker.play_animation("attack")
-	await attacker.play_animation("idle")
+	attacker.play_animation("idle")
 
 	var roll = randi_range(1, 20)
 	var total = roll + attacker.attack_bonus
@@ -83,9 +87,6 @@ func attack(attacker, target) -> void:
 		add_log(attacker.char_name + " attacks " + target.char_name + " and misses! (" + str(total) + " vs AC " + str(target.armor_class) + ")")
 		return
 
-	# 2. Play target's hurt animation on hit
-	await target.play_animation("hurt")
-	await target.play_animation("idle")
 	var dice = attacker.damage_dice
 	if roll == 20:
 		dice = dice * 2
@@ -94,6 +95,8 @@ func attack(attacker, target) -> void:
 	for i in range(dice):
 		damage = damage + randi_range(1, attacker.damage_sides)
 	
+	if target.is_guarding:
+		damage = damage * 0.5
 	target.take_damage(damage)
 
 	if roll == 20:
@@ -105,7 +108,9 @@ func attack(attacker, target) -> void:
 		add_log(target.char_name + " is down!")
 		await target.play_animation("die") # Optional death animation
 
-
+func guard() -> void:
+	current.is_guarding = true
+	add_log(current.char_name + " guards and takes reduced damage until their next turn!")
 
 func get_alive(list):
 	var alive = []
@@ -167,3 +172,9 @@ func _on_back_button_pressed():
 
 func _on_restart_button_pressed():
 	get_tree().reload_current_scene()
+
+
+func _on_guard_button_pressed():
+	$"../UI/CommandMenu".hide()
+	guard()
+	next_turn()

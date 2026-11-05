@@ -1,6 +1,0 @@
-res://scenes/battle.tscn
-res://scripts/battle_handler.gd
-res://scripts/combatant.gd
-res://scenes/combatant.tscn
-res://fighter.tscn
-res://cleric.tscn

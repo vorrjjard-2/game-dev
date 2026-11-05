@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://droavpb2bdyc2"]
+
+[ext_resource type="PackedScene" uid="uid://b6jghmnffy21m" path="res://scenes/combatant.tscn" id="1_kapy6"]
+[ext_resource type="Texture2D" uid="uid://dr5fr0hx6ng0x" path="res://assets/characters/Orc/Orc_Attack01.png" id="2_6hc3a"]
+[ext_resource type="Texture2D" uid="uid://dkmm3kn1qceos" path="res://assets/characters/Orc/Orc_Death.png" id="3_6hc3a"]
+[ext_resource type="Texture2D" uid="uid://dgeufcvcuqjfw" path="res://assets/characters/Orc/Orc_Idle.png" id="3_vumo0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31h1d"]
+atlas = ExtResource("2_6hc3a")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfwqp"]
+atlas = ExtResource("2_6hc3a")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d22v1"]
+atlas = ExtResource("2_6hc3a")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpvyt"]
+atlas = ExtResource("2_6hc3a")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5atpf"]
+atlas = ExtResource("2_6hc3a")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elqaq"]
+atlas = ExtResource("2_6hc3a")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vumo0"]
+atlas = ExtResource("3_6hc3a")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_becal"]
+atlas = ExtResource("3_6hc3a")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxg7p"]
+atlas = ExtResource("3_6hc3a")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7d06"]
+atlas = ExtResource("3_6hc3a")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo07l"]
+atlas = ExtResource("3_vumo0")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgjqm"]
+atlas = ExtResource("3_vumo0")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo35u"]
+atlas = ExtResource("3_vumo0")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koja6"]
+atlas = ExtResource("3_vumo0")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4ydi"]
+atlas = ExtResource("3_vumo0")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrkhb"]
+atlas = ExtResource("3_vumo0")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_becal"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31h1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfwqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d22v1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpvyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5atpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elqaq")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vumo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_becal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxg7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7d06")
+}],
+"loop": 0,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo07l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgjqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo35u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koja6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4ydi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrkhb")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Combatant" unique_id=1423359813 instance=ExtResource("1_kapy6")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=149103925]
+texture_filter = 1
+position = Vector2(1.1920929e-07, 1.1920929e-07)
+scale = Vector2(5.0474997, 5.0474997)
+sprite_frames = SubResource("SpriteFrames_becal")
+animation = &"attack"
+flip_h = true
+
+[node name="NameLabel" parent="." index="1" unique_id=1988625069]
+text = "Orc
+"
+
+[node name="HPBar" parent="." index="2" unique_id=446904273]
+modulate = Color(1, 0, 0, 1)

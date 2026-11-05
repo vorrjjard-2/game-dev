@@ -43,6 +43,46 @@ region = Rect2(256, 96, 29, 32)
 atlas = ExtResource("2_8hi4o")
 region = Rect2(288, 96, 29, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hi4o"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(0, 128, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3xp5"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(32, 128, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5ryu"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(64, 128, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blxfi"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(96, 128, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8p2fy"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(128, 128, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqlyu"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(160, 128, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agyi4"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(192, 128, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlur5"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(224, 128, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyrs1"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(256, 128, 28, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibp3b"]
+atlas = ExtResource("2_8hi4o")
+region = Rect2(288, 128, 28, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gt2i1"]
 atlas = ExtResource("2_8hi4o")
 region = Rect2(0, 0, 29, 32)
@@ -120,9 +160,39 @@ animations = [{
 "name": &"attack",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hi4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3xp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5ryu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blxfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8p2fy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqlyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agyi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlur5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyrs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibp3b")
+}],
 "loop": 0,
-"name": &"hurt",
+"name": &"die",
 "speed": 5.0
 }, {
 "frames": [{
@@ -169,3 +239,9 @@ position = Vector2(9.536743e-07, -1.9073486e-06)
 scale = Vector2(2.0517242, 2.0517242)
 sprite_frames = SubResource("SpriteFrames_t3xp5")
 animation = &"attack"
+
+[node name="NameLabel" parent="." index="1" unique_id=1988625069]
+text = "Cleric"
+
+[node name="HPBar" parent="." index="2" unique_id=446904273]
+modulate = Color(0, 1, 0, 1)

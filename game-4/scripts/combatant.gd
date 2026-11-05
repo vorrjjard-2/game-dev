@@ -2,6 +2,7 @@ extends Node2D
 
 @export var char_name = "Name"
 @export var is_player = true
+@export var is_guarding = false
 @export var max_hp = 20
 @export var armor_class = 12
 @export var dex_mod = 0

@@ -1,9 +1,12 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1793810701
-cleric.tscn::PackedScene::6620727587367979441::1793810067::0::1::::<><><>0<>0<><>::uid://b6jghmnffy21m::::res://scenes/combatant.tscn
+::res://::1793840138
+blood_monster.tscn::PackedScene::8786606977334045543::1793819893::0::1::::<><><>0<>0<><>::uid://b6jghmnffy21m::::res://scenes/combatant.tscn<>uid://cd2opo83c6c2f::::res://assets/characters/Blood Monster_A/Blood Monster_A_Attack01.png<>uid://dehi4xe1fwx8h::::res://assets/characters/Blood Monster_A/Blood Monster_A_Idle.png<>uid://dkvpyrob8cau5::::res://assets/characters/Blood Monster_A/Blood Monster_A_Death.png
+cleric.tscn::PackedScene::6620727587367979441::1793819817::0::1::::<><><>0<>0<><>::uid://b6jghmnffy21m::::res://scenes/combatant.tscn<>uid://cq830s5odohu0::::res://assets/characters/cleric spritesheet calciumtrice.png
 DESIGN.md::TextFile::-1::1793784768::0::1::::<><><>0<>0<><>::
-fighter.tscn::PackedScene::2801381914571060677::1793809658::0::1::::<><><>0<>0<><>::uid://b6jghmnffy21m::::res://scenes/combatant.tscn<>uid://bkos7wdi7g6d4::::res://assets/characters/knight/sheets/knight_attack_right.png<>uid://q8yylu6e7u62::::res://assets/characters/knight/sheets/knight_hurt_right.png<>uid://cn74xbydns660::::res://assets/characters/knight/sheets/knight_idle_right.png
+fighter.tscn::PackedScene::2801381914571060677::1793819735::0::1::::<><><>0<>0<><>::uid://b6jghmnffy21m::::res://scenes/combatant.tscn<>uid://by0vjx67ekbac::::res://assets/characters/Soldier/Soldier_Attack01.png<>uid://v7hd27cnudl3::::res://assets/characters/Soldier/Soldier_Death.png<>uid://by4bvgm6lh63a::::res://assets/characters/Soldier/Soldier_Idle.png
 icon.svg::CompressedTexture2D::5930234075922844437::1793784768::1793785361::1::::<><><>0<>0<>04908c0a20892a646545c2a9a2de6b9c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+mage.tscn::PackedScene::4957701911245837217::1793819894::0::1::::<><><>0<>0<><>::uid://b6jghmnffy21m::::res://scenes/combatant.tscn<>uid://pacfmrtej57b::::res://assets/characters/mage/sheets/mage_attack_right.png<>uid://coif87wpxknhn::::res://assets/characters/mage/sheets/mage_death_right.png<>uid://bwnx6rf2vteme::::res://assets/characters/mage/sheets/mage_idle_right.png
+orc.tscn::PackedScene::8381411973777988487::1793819924::0::1::::<><><>0<>0<><>::uid://b6jghmnffy21m::::res://scenes/combatant.tscn<>uid://dr5fr0hx6ng0x::::res://assets/characters/Orc/Orc_Attack01.png<>uid://dkmm3kn1qceos::::res://assets/characters/Orc/Orc_Death.png<>uid://dgeufcvcuqjfw::::res://assets/characters/Orc/Orc_Idle.png
 ::res://assets/::1793810582
 ::res://assets/characters/::1793810701
 cleric spritesheet calciumtrice.png::CompressedTexture2D::5965733044528875325::1793810422::1793810422::1::::<><><>0<>0<>5401b4e3e3108480d80780b5bb995b40<>res://.godot/imported/cleric spritesheet calciumtrice.png-1d48abe5cba77bbbbef912b8e175e215.ctex::
@@ -286,7 +289,7 @@ paladin_default_walk_s_07.png::CompressedTexture2D::3113856131785315856::1793808
 ::res://assets/characters/paladin/sheets/::1793808867
 paladin_default_idle_s.png::CompressedTexture2D::2229021465715774454::1793808866::1793808867::1::::<><><>0<>0<>343d50c04eadda5f1c0d0aa373297068<>res://.godot/imported/paladin_default_idle_s.png-177e013d1bcc34ba213bd4982631927c.ctex::
 paladin_default_walk_s.png::CompressedTexture2D::2201956581879840429::1793808866::1793808867::1::::<><><>0<>0<>02a4a6a4d0faeb1de1e463a767ea92a0<>res://.godot/imported/paladin_default_walk_s.png-f81a7a568efd0e146c7874f5217bf68e.ctex::
-::res://assets/characters/Soldier/::1793810678
+::res://assets/characters/Soldier/::1793810701
 Soldier.png::CompressedTexture2D::4310921659976695159::1793810678::1793810701::1::::<><><>0<>0<>415c15a031551e7d57820d7a0237e47a<>res://.godot/imported/Soldier.png-bec044e999a8206f72c34eb17db6e7cc.ctex::
 Soldier_Attack01.png::CompressedTexture2D::4123854761236275798::1793810678::1793810701::1::::<><><>0<>0<>b8f6da569fa16aefc56c51cdcfc64a20<>res://.godot/imported/Soldier_Attack01.png-b7c7ce39d24c6c49ae8f9a048b336561.ctex::
 Soldier_Attack02.png::CompressedTexture2D::505094302244613064::1793810678::1793810701::1::::<><><>0<>0<>51a3c7305d70102ca7c7ab85b8e614cc<>res://.godot/imported/Soldier_Attack02.png-73725841dda735ae99f1a9d8aa803d74.ctex::
@@ -295,9 +298,9 @@ Soldier_Death.png::CompressedTexture2D::1540457648532901198::1793810678::1793810
 Soldier_Hurt.png::CompressedTexture2D::3150676060311037584::1793810678::1793810701::1::::<><><>0<>0<>af26eaa5f11abdbe3e46c1032344257b<>res://.godot/imported/Soldier_Hurt.png-bd6bb2f146e41daa282498fb150d7f26.ctex::
 Soldier_Idle.png::CompressedTexture2D::4130918439639644668::1793810678::1793810701::1::::<><><>0<>0<>0d557e279ea656bd7c623ba6fb5bb7e6<>res://.godot/imported/Soldier_Idle.png-b1c59d21a31da620b2c95aaee02172b0.ctex::
 Soldier_Walk.png::CompressedTexture2D::2907496382318324952::1793810678::1793810701::1::::<><><>0<>0<>e2120ef368dbc43ada1b3419dee15cf9<>res://.godot/imported/Soldier_Walk.png-11633063dbc02f4f0a834d564c03f61c.ctex::
-::res://scenes/::1793809629
-battle.tscn::PackedScene::5689282742197249084::1793809629::0::1::::<><><>0<>0<><>::uid://b6jghmnffy21m::::res://scenes/combatant.tscn<>uid://ba8q58j1p0ncs::::res://scripts/battle_handler.gd<>uid://bf6al6twdgyph::::res://fighter.tscn
-combatant.tscn::PackedScene::4581231689370069340::1793809586::0::1::::<><><>0<>0<><>::uid://cydi22te8bd1b::::res://scripts/combatant.gd
+::res://scenes/::1793824651
+battle.tscn::PackedScene::5689282742197249084::1793824651::0::1::::<><><>0<>0<><>::uid://ba8q58j1p0ncs::::res://scripts/battle_handler.gd<>uid://c1leoe77xsvob::::res://cleric.tscn<>uid://bf6al6twdgyph::::res://fighter.tscn<>uid://ccvsvj3fk8c7r::::res://mage.tscn<>uid://droavpb2bdyc2::::res://orc.tscn<>uid://dxgker7nxgy7h::::res://blood_monster.tscn
+combatant.tscn::PackedScene::4581231689370069340::1793812451::0::1::::<><><>0<>0<><>::uid://cydi22te8bd1b::::res://scripts/combatant.gd
 ::res://scenes/characters/::1793808861
 ::res://scenes/characters/farmer/::1793808861
 ::res://scenes/characters/farmer/frames/::1793808863
@@ -561,6 +564,6 @@ paladin_default_walk_s_07.png::CompressedTexture2D::1248047730054270132::1793808
 ::res://scenes/characters/paladin/sheets/::1793808862
 paladin_default_idle_s.png::CompressedTexture2D::2196429390843462160::1793808861::1793808862::1::::<><><>0<>0<>b423cd2de319edae568773718e9b296a<>res://.godot/imported/paladin_default_idle_s.png-5fc4125dc95c63eebae4f7429f914db0.ctex::
 paladin_default_walk_s.png::CompressedTexture2D::5801515733427270971::1793808861::1793808862::1::::<><><>0<>0<>dcaf63bcb12158dd87ee6b54ad2dd1f3<>res://.godot/imported/paladin_default_walk_s.png-e4e512a7e869c2fcced1bd40d7d6fd7c.ctex::
-::res://scripts/::1793809722
-battle_handler.gd::GDScript::2455571943654642242::1793809722::0::1::::<>Node<><>0<>0<><>::
-combatant.gd::GDScript::6464102148046344793::1793809586::0::1::::<>Node2D<><>0<>0<><>::
+::res://scripts/::1793814456
+battle_handler.gd::GDScript::2455571943654642242::1793814456::0::1::::<>Node<><>0<>0<><>::
+combatant.gd::GDScript::6464102148046344793::1793813338::0::1::::<>Node2D<><>0<>0<><>::

@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://ccvsvj3fk8c7r"]
+
+[ext_resource type="PackedScene" uid="uid://b6jghmnffy21m" path="res://scenes/combatant.tscn" id="1_43ska"]
+[ext_resource type="Texture2D" uid="uid://pacfmrtej57b" path="res://assets/characters/mage/sheets/mage_attack_right.png" id="2_0cwdj"]
+[ext_resource type="Texture2D" uid="uid://coif87wpxknhn" path="res://assets/characters/mage/sheets/mage_death_right.png" id="3_0cwdj"]
+[ext_resource type="Texture2D" uid="uid://bwnx6rf2vteme" path="res://assets/characters/mage/sheets/mage_idle_right.png" id="3_21ki8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhvty"]
+atlas = ExtResource("2_0cwdj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6bmud"]
+atlas = ExtResource("2_0cwdj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy5gp"]
+atlas = ExtResource("2_0cwdj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ler0"]
+atlas = ExtResource("2_0cwdj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5co2"]
+atlas = ExtResource("2_0cwdj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21ki8"]
+atlas = ExtResource("3_0cwdj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3nql"]
+atlas = ExtResource("3_0cwdj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u2m4"]
+atlas = ExtResource("3_0cwdj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3isy"]
+atlas = ExtResource("3_0cwdj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtvqm"]
+atlas = ExtResource("3_0cwdj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bve6l"]
+atlas = ExtResource("3_21ki8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r03gu"]
+atlas = ExtResource("3_21ki8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj3sj"]
+atlas = ExtResource("3_21ki8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2deag"]
+atlas = ExtResource("3_21ki8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a3nql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhvty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6bmud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wy5gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ler0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5co2")
+}],
+"loop": 0,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21ki8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3nql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u2m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3isy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtvqm")
+}],
+"loop": 1,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bve6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r03gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj3sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2deag")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Combatant" unique_id=1423359813 instance=ExtResource("1_43ska")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=149103925]
+texture_filter = 1
+position = Vector2(1.1920929e-07, -4.5474735e-13)
+scale = Vector2(1.9375, 1.9375)
+sprite_frames = SubResource("SpriteFrames_a3nql")
+animation = &"die"
+
+[node name="NameLabel" parent="." index="1" unique_id=1988625069]
+text = "Mage"
+
+[node name="HPBar" parent="." index="2" unique_id=446904273]
+modulate = Color(0, 1, 0, 1)
+max_value = 15.0
+value = 15.0
