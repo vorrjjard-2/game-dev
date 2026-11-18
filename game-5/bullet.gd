@@ -14,7 +14,6 @@ func _physics_process(delta: float) -> void:
 	position += direction * SPEED * delta
 
 func _on_body_entered(body: Node) -> void:
-	print("balright")
 	if body == shooter:
 		return
 	queue_free() 
