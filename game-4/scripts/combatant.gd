@@ -38,12 +38,9 @@ func update_hp():
 	$HPLabel.text = str(hp) + "/" + str(max_hp)
 
 func play_animation(anim_name: String):
-	# Check if the AnimatedSprite2D actually has this animation defined in its SpriteFrames
 	if animated_sprite.sprite_frames.has_animation(anim_name):
 		animated_sprite.play(anim_name)
-		# Wait until the sprite sheet finishes playing all its frames!
 		await animated_sprite.animation_finished
 	else:
-		# Fallback just in case you haven't drawn the animation frames yet
 		print("Sprite animation not found: ", anim_name)
 		await get_tree().create_timer(0.3).timeout
