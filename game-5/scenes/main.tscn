@@ -1,4 +1,4 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://c6cu4wigbplcs"]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
 
@@ -32,40 +32,42 @@ albedo_color = Color(0.55, 0.55, 0.6, 1)
 material = SubResource("wall_mat")
 size = Vector3(4, 3, 1)
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" unique_id=743254343]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1031344553]
 environment = SubResource("env")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=633239222]
 transform = Transform3D(0.866, -0.354, 0.354, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 10, 0)
 shadow_enabled = true
 
-[node name="Floor" type="StaticBody3D" parent="."]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=638351873]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1370499929]
 shape = SubResource("floor_shape")
 
-[node name="Mesh" type="MeshInstance3D" parent="Floor"]
+[node name="Mesh" type="MeshInstance3D" parent="Floor" unique_id=138986314]
 mesh = SubResource("floor_mesh")
 
-[node name="Wall1" type="StaticBody3D" parent="."]
+[node name="Wall1" type="StaticBody3D" parent="." unique_id=1193158159]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -8)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1" unique_id=1423799498]
 shape = SubResource("wall_shape")
 
-[node name="Mesh" type="MeshInstance3D" parent="Wall1"]
+[node name="Mesh" type="MeshInstance3D" parent="Wall1" unique_id=144385125]
 mesh = SubResource("wall_mesh")
 
-[node name="Wall2" type="StaticBody3D" parent="."]
+[node name="Wall2" type="StaticBody3D" parent="." unique_id=37622224]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 6, 1.5, -12)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2" unique_id=203693498]
 shape = SubResource("wall_shape")
 
-[node name="Mesh" type="MeshInstance3D" parent="Wall2"]
+[node name="Mesh" type="MeshInstance3D" parent="Wall2" unique_id=1467726227]
 mesh = SubResource("wall_mesh")
 
-[node name="Player" parent="." instance=ExtResource("1_player")]
+[node name="Player" parent="." unique_id=1099125094 instance=ExtResource("1_player")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2097821430]
