@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var move_speed := 6.0
+@export var JUMP_VELOCITY := 4.5
 @export var mouse_sensitivity := 0.003
 @export var min_pitch := -1.2
 @export var max_pitch := 1.0
@@ -32,6 +33,9 @@ func _physics_process(delta: float) -> void:
 	camera.fov = lerpf(camera.fov, target_fov, zoom_speed * delta)
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	# Handle jump
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
 	var input := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	dir = (global_basis * Vector3(input.x, 0.0, input.y)).normalized()
 	velocity.x = dir.x * move_speed
