@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b223not86xuxd"]
 
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://bk5xh3onu5tyf" path="res://scenes/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://ca4op44nt6rd6" path="res://scenes/enemy.tscn" id="3_jyhfs"]
 
 [sub_resource type="ProceduralSkyMaterial" id="sky_mat"]
 
@@ -11,6 +13,10 @@ sky_material = SubResource("sky_mat")
 background_mode = 2
 sky = SubResource("sky")
 ambient_light_source = 3
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ubxs6"]
+vertices = PackedVector3Array(-7.25, 0.5, -9, -5.25, 0.5, -9, -5.25, 0.5, -29.5, -7.5, 0.5, -7.75, -29.5, 0.5, -29.5, -29.5, 0.5, -7.75, -2.5, 0.5, -9, -2.25, 0.5, -8.5, 5.25, 0.5, -9.25, 5, 0.5, -14.25, 6.25, 0.5, -14.5, 6.25, 0.5, -29.5, 7.25, 0.5, -14.25, 29.5, 0.5, -13, 29.5, 0.5, -29.5, 7.25, 0.5, -12.75, 7.25, 0.5, -11.25, 29.5, 0.5, -11, 7.25, 0.5, -9.75, 7.25, 0.5, 29.5, 29.5, 0.5, 29.5, -2.25, 0.5, -7.25, -2.75, 0.5, -6.75, -4, 0.5, 29.5, 6.75, 0.5, -9.25, -4.25, 0.5, -6.75, -7.25, 0.5, -6.75, -29.5, 0.5, 29.5, -6, 0.5, 29.5, -5.75, 0.5, -6.75)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 5), PackedInt32Array(2, 5, 4), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(11, 10, 9), PackedInt32Array(6, 1, 9), PackedInt32Array(9, 1, 11), PackedInt32Array(11, 1, 2), PackedInt32Array(10, 11, 12), PackedInt32Array(12, 11, 14), PackedInt32Array(12, 14, 13), PackedInt32Array(13, 15, 12), PackedInt32Array(15, 13, 16), PackedInt32Array(16, 13, 17), PackedInt32Array(18, 16, 17), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 17), PackedInt32Array(21, 7, 8), PackedInt32Array(21, 8, 22), PackedInt32Array(22, 8, 24), PackedInt32Array(22, 24, 19), PackedInt32Array(22, 19, 23), PackedInt32Array(24, 18, 19), PackedInt32Array(23, 25, 22), PackedInt32Array(3, 26, 5), PackedInt32Array(5, 26, 27), PackedInt32Array(27, 26, 28), PackedInt32Array(26, 29, 28), PackedInt32Array(29, 25, 28), PackedInt32Array(28, 25, 23)]
 
 [sub_resource type="BoxShape3D" id="floor_shape"]
 size = Vector3(60, 1, 60)
@@ -33,6 +39,7 @@ material = SubResource("wall_mat")
 size = Vector3(4, 3, 1)
 
 [node name="Main" type="Node3D" unique_id=743254343]
+script = ExtResource("1_sugp2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1031344553]
 environment = SubResource("env")
@@ -41,34 +48,43 @@ environment = SubResource("env")
 transform = Transform3D(0.866, -0.354, 0.354, 0, 0.707, 0.707, -0.5, -0.612, 0.612, 0, 10, 0)
 shadow_enabled = true
 
-[node name="Floor" type="StaticBody3D" parent="." unique_id=638351873]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=3524190]
+navigation_mesh = SubResource("NavigationMesh_ubxs6")
+
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D" unique_id=638351873]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1370499929]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor" unique_id=1370499929]
 shape = SubResource("floor_shape")
 
-[node name="Mesh" type="MeshInstance3D" parent="Floor" unique_id=138986314]
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Floor" unique_id=138986314]
 mesh = SubResource("floor_mesh")
 
-[node name="Wall1" type="StaticBody3D" parent="." unique_id=1193158159]
+[node name="Wall1" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1193158159]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -8)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1" unique_id=1423799498]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall1" unique_id=1423799498]
 shape = SubResource("wall_shape")
 
-[node name="Mesh" type="MeshInstance3D" parent="Wall1" unique_id=144385125]
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Wall1" unique_id=144385125]
 mesh = SubResource("wall_mesh")
 
-[node name="Wall2" type="StaticBody3D" parent="." unique_id=37622224]
+[node name="Wall2" type="StaticBody3D" parent="NavigationRegion3D" unique_id=37622224]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 6, 1.5, -12)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2" unique_id=203693498]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall2" unique_id=203693498]
 shape = SubResource("wall_shape")
 
-[node name="Mesh" type="MeshInstance3D" parent="Wall2" unique_id=1467726227]
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Wall2" unique_id=1467726227]
 mesh = SubResource("wall_mesh")
 
 [node name="Player" parent="." unique_id=1099125094 instance=ExtResource("1_player")]
+
+[node name="Enemy" parent="." unique_id=1985492669 instance=ExtResource("3_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6886954, 0.18821597, -14.913687)
+
+[node name="Enemy2" parent="." unique_id=752978740 instance=ExtResource("3_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.562276, 0.15648723, -24.02766)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2097821430]
 layer = 100
