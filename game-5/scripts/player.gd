@@ -4,7 +4,9 @@ extends CharacterBody3D
 @export var mouse_sensitivity := 0.003
 @export var min_pitch := -1.2
 @export var max_pitch := 1.0
-
+@export var default_fov: float = 75.0
+@export var aim_fov: float = 37.5
+@export var zoom_speed: float = 10.0
 @onready var pivot: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
 const bullet_scene := preload("res://bullet.tscn")
@@ -26,6 +28,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	var target_fov := aim_fov if Input.is_action_pressed("aim") else default_fov
+	camera.fov = lerpf(camera.fov, target_fov, zoom_speed * delta)
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	var input := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
