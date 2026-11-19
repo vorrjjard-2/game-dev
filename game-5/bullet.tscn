@@ -5,7 +5,11 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_pr7xa"]
 radius = 0.5693629
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vyb7"]
+albedo_color = Color(1, 0.6431373, 0, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_pr7xa"]
+material = SubResource("StandardMaterial3D_3vyb7")
 
 [node name="bullet" type="Area3D" unique_id=291891752]
 script = ExtResource("1_v7oki")

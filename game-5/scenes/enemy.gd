@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var nav = $NavigationAgent3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+var hp = 30
 
 
 func _physics_process(delta: float) -> void:
@@ -20,3 +21,8 @@ func _physics_process(delta: float) -> void:
 
 func target_position(target):
 	nav.target_position = target
+	
+func take_damage(damage):
+	hp -= damage
+	if hp <= 0:
+		queue_free()

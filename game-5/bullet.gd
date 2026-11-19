@@ -1,6 +1,7 @@
 extends Area3D
 
 const SPEED := 25.0
+const damage := 10
 
 var direction := Vector3.UP
 var shooter: Node = null
@@ -16,4 +17,6 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body == shooter:
 		return
+	elif body.is_in_group("enemy"):
+		body.take_damage(damage)
 	queue_free() 
