@@ -10,6 +10,8 @@ extends CharacterBody3D
 @export var zoom_speed: float = 10.0
 @onready var pivot: Node3D = $CameraPivot
 @onready var camera: Camera3D = $CameraPivot/Camera3D
+@onready var ray = $CameraPivot/Camera3D/RayCast3D
+@onready var gun = $Gun
 const bullet_scene := preload("res://bullet.tscn")
 var dir := Vector3.FORWARD
 var can_shoot: bool = true
@@ -41,6 +43,10 @@ func _physics_process(delta: float) -> void:
 	velocity.x = dir.x * move_speed
 	velocity.z = dir.z * move_speed
 	move_and_slide()
+	if ray.is_colliding():
+		gun.look_at(ray.get_collision_point())
+	else:
+		gun.look_at(ray.to_global(ray.target_position))
 	if Input.is_action_pressed("shoot") and can_shoot:
 		shoot()
 
@@ -48,11 +54,9 @@ func _physics_process(delta: float) -> void:
 func shoot() -> void:
 	can_shoot = false
 	var bullet := bullet_scene.instantiate()
-	var screen_center := get_viewport().get_visible_rect().size / 2.0
-	var shoot_dir := camera.project_ray_normal(screen_center)
-	bullet.direction = shoot_dir
+	bullet.direction = -gun.global_basis.z
 	bullet.shooter = self
 	get_parent().add_child(bullet)
-	bullet.global_position = global_position + Vector3.UP * 1.5
+	bullet.global_position = $Gun/Muzzle.global_position
 	await get_tree().create_timer(fire_rate).timeout
 	can_shoot = true

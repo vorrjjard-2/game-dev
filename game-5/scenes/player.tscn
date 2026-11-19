@@ -14,6 +14,13 @@ material = SubResource("body_mat")
 radius = 0.4
 height = 1.8
 
+[sub_resource type="StandardMaterial3D" id="gun_mat"]
+albedo_color = Color(0.1, 0.1, 0.1, 1)
+
+[sub_resource type="BoxMesh" id="gun_mesh"]
+material = SubResource("gun_mat")
+size = Vector3(0.1, 0.1, 0.6)
+
 [node name="Player" type="CharacterBody3D" unique_id=686395969]
 collision_layer = 2
 script = ExtResource("1_player")
@@ -26,6 +33,16 @@ shape = SubResource("shape")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 mesh = SubResource("body_mesh")
 
+[node name="Gun" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45, 1.2, 0)
+
+[node name="GunMesh" type="MeshInstance3D" parent="Gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3)
+mesh = SubResource("gun_mesh")
+
+[node name="Muzzle" type="Marker3D" parent="Gun"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.65)
+
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1701569443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
@@ -33,3 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.25, 2.6)
 current = true
 fov = 70.0
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot/Camera3D"]
+target_position = Vector3(0, 0, -200)
