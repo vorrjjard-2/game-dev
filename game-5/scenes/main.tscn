@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b223not86xuxd"]
 
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://chvad5qtlqxdg" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="Script" uid="uid://bk5xh3onu5tyf" path="res://scenes/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://ca4op44nt6rd6" path="res://scenes/enemy.tscn" id="3_jyhfs"]
 
@@ -78,6 +78,36 @@ shape = SubResource("wall_shape")
 [node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Wall2" unique_id=1467726227]
 mesh = SubResource("wall_mesh")
 
+[node name="Wall3" type="StaticBody3D" parent="NavigationRegion3D" unique_id=538046245]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -6, 3, 2.146099)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall3" unique_id=1490850281]
+shape = SubResource("wall_shape")
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Wall3" unique_id=466225227]
+transform = Transform3D(0.016431265, 0, -0.999865, 0, 1, 0, 0.999865, 0, 0.016431265, 0, -1.5062828, 0)
+mesh = SubResource("wall_mesh")
+
+[node name="Wall4" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1057460068]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.01165, 2.980773, 9.003032)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall4" unique_id=1059165880]
+shape = SubResource("wall_shape")
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Wall4" unique_id=1811772154]
+transform = Transform3D(0.016431265, 0, -0.999865, 0, 1, 0, 0.999865, 0, 0.016431265, 0, -1.5062828, 0)
+mesh = SubResource("wall_mesh")
+
+[node name="Wall5" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1213715754]
+transform = Transform3D(-0.014510762, 0, -0.99989474, 0, 1, 0, 0.99989474, 0, -0.014510762, 14.178919, 3.0442295, 19.363028)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Wall5" unique_id=1998814388]
+shape = SubResource("wall_shape")
+
+[node name="Mesh" type="MeshInstance3D" parent="NavigationRegion3D/Wall5" unique_id=1249259538]
+transform = Transform3D(0.016431265, 0, -0.999865, 0, 1, 0, 0.999865, 0, 0.016431265, 0, -1.5062828, 0)
+mesh = SubResource("wall_mesh")
+
 [node name="Player" parent="." unique_id=1099125094 instance=ExtResource("1_player")]
 
 [node name="Enemy" parent="." unique_id=1985492669 instance=ExtResource("3_jyhfs")]
@@ -85,6 +115,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6886954, 0.18821597, -14.9
 
 [node name="Enemy2" parent="." unique_id=752978740 instance=ExtResource("3_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.562276, 0.15648723, -24.02766)
+
+[node name="Enemy3" parent="." unique_id=291410522 instance=ExtResource("3_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.857168, 0.31297445, 24.021784)
+
+[node name="Enemy4" parent="." unique_id=782944494 instance=ExtResource("3_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.206339, 0.6259489, 8.886974)
+
+[node name="Enemy5" parent="." unique_id=1938513574 instance=ExtResource("3_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.555134, 0.37643194, -24.749197)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2097821430]
 layer = 100

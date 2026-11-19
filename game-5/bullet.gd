@@ -1,5 +1,7 @@
 extends Area3D
 
+const explosion = preload("res://scenes/bullet_explosion.tscn")
+
 const SPEED := 25.0
 const damage := 10
 
@@ -19,4 +21,10 @@ func _on_body_entered(body: Node) -> void:
 		return
 	elif body.is_in_group("enemy"):
 		body.take_damage(damage)
-	queue_free() 
+	explode()
+	queue_free()
+	
+func explode() -> void:
+	var sphere = explosion.instantiate()
+	get_tree().current_scene.add_child(sphere)
+	sphere.global_position = global_position

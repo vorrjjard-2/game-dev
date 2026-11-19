@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dt2vfxsk5dxh6"]
+
+[ext_resource type="Script" uid="uid://ehjjeq0i71f0" path="res://scenes/bullet_explosion.gd" id="1_q6jx3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubxs6"]
+transparency = 1
+albedo_color = Color(1, 0.45882353, 0.23137255, 0.21568628)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ubxs6"]
+material = SubResource("StandardMaterial3D_ubxs6")
+
+[node name="BulletExplosion" type="Node3D" unique_id=2073186844]
+script = ExtResource("1_q6jx3")
+
+[node name="ExplosionArea" type="MeshInstance3D" parent="." unique_id=974119721]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("SphereMesh_ubxs6")

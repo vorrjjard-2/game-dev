@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+const explosion = preload("res://scenes/enemy_explosion.tscn")
+
 @onready var nav = $NavigationAgent3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -25,4 +27,10 @@ func target_position(target):
 func take_damage(damage):
 	hp -= damage
 	if hp <= 0:
+		explode()
 		queue_free()
+
+func explode() -> void:
+	var sphere = explosion.instantiate()
+	get_tree().current_scene.add_child(sphere)
+	sphere.global_position = global_position

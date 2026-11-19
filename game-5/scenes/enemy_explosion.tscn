@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dqnk0ei6kofx3"]
+
+[ext_resource type="Script" uid="uid://d3mdkvf1opg16" path="res://scenes/enemy_explosion.gd" id="1_qx6bo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sx1l"]
+transparency = 1
+albedo_color = Color(1, 0, 0.12156863, 0.3372549)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ubxs6"]
+material = SubResource("StandardMaterial3D_6sx1l")
+
+[node name="EnemyExplosion" type="Node3D" unique_id=1629015035]
+script = ExtResource("1_qx6bo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=559458194]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("SphereMesh_ubxs6")
